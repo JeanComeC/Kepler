@@ -78,3 +78,10 @@ Le projet est organisé comme suit :
    cd ..
    rm -rf Kepler
    ```
+- Si votre agent SSH s'est déconnecté :
+   ```bash
+   eval $(ssh-agent -s)
+   ssh-add -l
+   ssh-add ~/.ssh/name_your_key
+   ssh -T git@github.com
+   ```
