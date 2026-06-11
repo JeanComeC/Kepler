@@ -4,6 +4,8 @@
 #include <stdio.h>
 
 
+// === MAIN ===
+
 int main(void){
     //Initialization & Verification
     if(MAX_POINT<3 || MAX_POINT!=(int)(365.25*(24.0/H_PAS_TEMPOREL_HEURE))){
