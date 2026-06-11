@@ -6,6 +6,7 @@
 #include <stdlib.h>
 #include <stdbool.h>
 #include <stdint.h>
+#include "algo.h"
 
 
 //MACRO
@@ -15,6 +16,7 @@
 
 
 //PROTOTYPE
+bool writting_json(const char* path_json, struct Data_output* tab_data);
 
 
 #endif
