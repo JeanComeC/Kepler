@@ -8,11 +8,10 @@ Le projet est organisé comme suit :
 
 - **src/** : Répertoire contenant les fichiers source du projet.
   - **main.c** : Point d'entrée du programme, responsable de l'initialisation, de la génération et de la résolution du Labyrinthe.
-  - **rdfs_generator.c** : Contient les fonctions pour initialiser et générer le Labyrinthe,  et pour l'afficher.
-  - **resolver_breadthfirstsearch.c** : Contient toutes les fonctions relatives à l'algorithme Breadth First Search (BFS).
-  - **resolver_djikstra.c** : Contient toutes les fonctions relatives à l'algorithme Djikstra.
-  - **resolver_a.c** : Contient toutes les fonctions relatives à l'algorithme A*.
-  - **rdfs_generator.h**, **resolver_breadthfirstsearch.h**, **resolver_djikstra.h**, **resolver_a.h** : Headerfiles définissant les structures (`Cell`, `Grid`, `Position`, ...), les macros, les prototypes des fonctions, et incluant les bibliothèques nécessaires.
+  - **physic_calc.c** : Contient les fonctions pour initialiser et générer le Labyrinthe,  et pour l'afficher.
+  - **algo.c** : Contient toutes les fonctions relatives à l'algorithme Breadth First Search (BFS).
+  - **export.c** : Contient toutes les fonctions relatives à l'algorithme Djikstra.
+  - **physic_calc.h**, **algo.h**, **export.h** : Headerfiles définissant les structures (`Cell`, `Grid`, `Position`, ...), les macros, les prototypes des fonctions, et incluant les bibliothèques nécessaires.
 
 - **website/** : Répertoire contenant les fichiers source du site web (HTML/CSS/JS/JSON).
   - **index.html** : ...
