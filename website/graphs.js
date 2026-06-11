@@ -23,8 +23,9 @@ const graphTrajectoire = Plot.plot({
   title: "Trajectoire de Mercure",
   x: { label: "x (m)" },
   y: { label: "y (m)" },
+  z :{ label: "z (m)" },
   marks: [
-    Plot.line(data, { x: "x", y: "y" })
+    Plot.line(data, { x: "x", y: "y" , z: "z"})
   ]
 });
 
