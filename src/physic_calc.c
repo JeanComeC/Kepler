@@ -48,7 +48,7 @@ double calc_e_cinetique(struct Coordinates vect_v){
 }
 
 double calc_e_potentiel(struct Coordinates vect_r){
-    double d_pe=CONSTANTE_GRAVITATION_UNIVERSELLE*((MASSE_SOLEIL_KG*MASSE_TERRE_KG)/calc_norme(vect_r));
+    double d_pe=-1.0*CONSTANTE_GRAVITATION_UNIVERSELLE*((MASSE_SOLEIL_KG*MASSE_TERRE_KG)/calc_norme(vect_r));
     return d_pe;
 }
 
@@ -59,7 +59,7 @@ bool main_calculation(struct Data_output* tabmain){
     struct Coordinates vect_v=v0;
     struct Coordinates vect_r=r0;
     for(size_t i=0;i<MAX_POINT;i++){
-        struct Coordinates vect_acc=calc_acceleration(vect_v);
+        struct Coordinates vect_acc=calc_acceleration(vect_r);
         struct Coordinates vect_v_news=calc_vitesse(vect_v,vect_acc);
         struct Coordinates vect_r_news=calc_position(vect_r,vect_v);
         double d_ke=calc_e_cinetique(vect_v);
