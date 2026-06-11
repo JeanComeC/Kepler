@@ -2,6 +2,10 @@
 #include "src/algo.h"
 #include <stddef.h>
 
+//Constantes globales :
+const struct Coordinates r0 = {.x=0.0, .y=0.0, .z=0.0};
+const struct Coordinates v0 = {.x=0.0, .y=0.0, .z=0.0};
+
 double calc_norme(struct Coordinates vector){
     double norme=0.0;
     norme=pow(vector.x,2)+pow(vector.y,2)+pow(vector.z,2);
