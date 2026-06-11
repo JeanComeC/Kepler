@@ -1,3 +1,5 @@
+#include "algo.h"
+#include "export.h"
 #include <stdio.h>
 
 int main(void){
