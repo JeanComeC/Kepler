@@ -7,9 +7,11 @@
 #include <stdbool.h>
 #include <stdint.h>
 #include <math.h>
+#include "algo.h"
 
 //MACRO
-
+#define CONSTANTE_GRAVITATION_UNIVERSELLE 6.674184E+11
+#define MASSE_PLANETE_KG 0
 
 //ENUMERATION
 
@@ -18,7 +20,9 @@
 
 
 //PROTOTYPE
-
+double rounded_d(double input);
+double calc_norme(struct Coordinates vector);
+struct Coordinates calc_acceleration();
 
 
 #endif
