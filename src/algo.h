@@ -8,7 +8,7 @@
 #include <stdint.h>
 
 //MACRO
-#define H_PAS_TEMPOREL_HEURE 1
+#define H_PAS_TEMPOREL_SECONDE 3600
 #define MAX_POINT 8766
 
 //ENUMERATION
