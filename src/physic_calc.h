@@ -14,8 +14,8 @@
 #define MASSE_SOLEIL_KG 1.989000E+30
 
 //CONSTANTES GLOBALES
-const struct Coordinates r0 = {.x=0,.y=0,.z=0};
-const struct Coordinates v0 = {.x=0,.y=0,.z=0};
+extern const struct Coordinates r0;
+extern const struct Coordinates v0;
 
 //STRUCTURE
 
