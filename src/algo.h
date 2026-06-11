@@ -9,10 +9,10 @@
 
 //MACRO
 #define H_PAS_TEMPOREL_HEURE 1
-#define MAX_POINT 365.25*(24/H_PAS_TEMPOREL_HEURE)
+#define MAX_POINT 8766
 
 //ENUMERATION
-//8766
+
 
 //STRUCTURE
 struct Coordinates{
