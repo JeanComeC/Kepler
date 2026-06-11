@@ -1,0 +1,22 @@
+body {
+    background-color: #0a0a1a;
+    color: white;
+    font-family: 'Arial', sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+
+h1{
+    color: #4fc3f7;
+    letter-spacing : 2px;
+    margin : 40px
+}
+
+#trajectoire, #energies {
+    background-color: #111122;
+    border-left: 3px solid #4fc3f7;
+    padding: 20px;
+    margin: 30px 0;
+}
