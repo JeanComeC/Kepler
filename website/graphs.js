@@ -23,10 +23,28 @@ const graphTrajectoire = Plot.plot({
   title: "Trajectoire de Mercure",
   x: { label: "x (m)" },
   y: { label: "y (m)" },
-  z :{ label: "z (m)" },
   marks: [
     Plot.line(data, { x: "x", y: "y" , z: "z"})
   ]
 });
 
 document.getElementById("trajectoire").append(graphTrajectoire);
+
+
+let i = 0;
+const timer = setInterval(() =>{
+  document.getElementById("trajectoire").innerHTML="";
+    let new_data = data.slice(0, i)
+    const newGraphTrajectoire =Plot .plot({
+      title:"Animation de la  trajectoire de Mercure ",
+      x: { label: "x (m)" },
+      y: { label: "y (m)" },
+      marks : [
+    Plot.line(data, { x: "x", y: "y" , z: "z"}),
+    Plot.dot([data[i]],{x: "x", y: "y" , z: "z"}),
+]
+  })
+  document.getElementById("trajectoire").append(newGraphTrajectoire)//injecter dans le div
+  i++;
+  if(i >= data.length){i = 0};
+}, 16)
