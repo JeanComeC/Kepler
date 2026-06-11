@@ -6,6 +6,8 @@
 const struct Coordinates r0 = {.x=0.0, .y=0.0, .z=0.0};
 const struct Coordinates v0 = {.x=0.0, .y=0.0, .z=0.0};
 
+// ===
+
 double calc_norme(struct Coordinates vector){
     double norme=0.0;
     norme=pow(vector.x,2)+pow(vector.y,2)+pow(vector.z,2);
@@ -37,6 +39,21 @@ struct Coordinates calc_position(struct Coordinates vect_r, struct Coordinates v
     vect_r_output.z=vect_r.z+(H_PAS_TEMPOREL_HEURE*vect_v.z);
     return vect_r_output;
 }
+
+// ===
+
+double calc_e_cinetique(struct Coordinates vect_v){
+    double d_ec=0.5*MASSE_TERRE_KG*pow(calc_norme(vect_v),2);
+    return d_ec;
+}
+
+double calc_e_potentiel(struct Coordinates vect_r){
+    double d_ep=CONSTANTE_GRAVITATION_UNIVERSELLE*((MASSE_SOLEIL_KG*MASSE_TERRE_KG)/calc_norme(vect_r));
+    return d_ep;
+}
+
+
+// ===
 
 bool main_calculation(struct Data_output* tabmain){
     struct Coordinates vect_v=v0;
