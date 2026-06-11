@@ -1,5 +1,5 @@
-#ifndef MATH_H
-#define MATH_H
+#ifndef PHYSIC_CALC_H
+#define PHYSIC_CALC_H
 
 //BIBLIOTHEQUE
 #include <stdio.h>
