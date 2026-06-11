@@ -22,7 +22,6 @@ struct Coordinates{
 };
 
 struct Data_output{
-    size_t id;
     double t;
     struct Coordinates coordinates;
     double ke;
