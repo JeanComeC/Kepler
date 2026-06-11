@@ -11,7 +11,7 @@
 
 //MACRO
 #define CONSTANTE_GRAVITATION_UNIVERSELLE 6.674184E+11
-#define MASSE_PLANETE_KG 0
+#define MASSE_SOLEIL_KG 1.989000E+30
 
 //ENUMERATION
 
@@ -20,7 +20,6 @@
 
 
 //PROTOTYPE
-double rounded_d(double input);
 double calc_norme(struct Coordinates vector);
 struct Coordinates calc_acceleration();
 
