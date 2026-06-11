@@ -6,6 +6,6 @@
 int main(void){
     printf("ca compile !\n");
     double test=12.4e11;
-    printf("test = %.10e\n",test);//10 = nb de chiffres apres la virgule
+    printf("test = %E\n",test);//10 = nb de chiffres apres la virgule
     return 0;
 }
