@@ -10,7 +10,7 @@
 
 
 //MACRO
-
+#define PATH_EXPORT_JSON "website/data.json"
 
 //ENUMERATION
 
