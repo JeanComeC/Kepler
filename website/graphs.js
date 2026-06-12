@@ -9,7 +9,7 @@ const energyData = data.flatMap(d => [
 ]);
 
 const graphEnergies = Plot.plot({
-  title: "Énergies de Mercure",
+  title: "Énergies",
   x: { label: "t (s)" },
   y: { label: "Énergie (J)" },
   marks: [
@@ -19,16 +19,16 @@ const graphEnergies = Plot.plot({
 
 document.getElementById("energies").append(graphEnergies);
 
-const graphTrajectoire = Plot.plot({
-  title: "Trajectoire de Mercure",
-  x: { label: "x (m)" },
-  y: { label: "y (m)" },
-  marks: [
-    Plot.line(data, { x: "x", y: "y" , z: "z"})
-  ]
-});
+// const graphTrajectoire = Plot.plot({
+//   title: "Trajectoire de la Terre",
+//   x: { label: "x (m)" },
+//   y: { label: "y (m)" },
+//   marks: [
+//     Plot.line(data, { x: "x", y: "y" , z: "z"})
+//   ]
+// });
 
-document.getElementById("trajectoire").append(graphTrajectoire);
+// document.getElementById("trajectoire").append(graphTrajectoire);
 
 
 let i = 0;
@@ -36,7 +36,7 @@ const timer = setInterval(() =>{
   document.getElementById("trajectoire").innerHTML="";
     let new_data = data.slice(0, i)
     const newGraphTrajectoire =Plot .plot({
-      title:"Animation de la  trajectoire de Mercure ",
+      title:"Simulation de la trajectoire du systeme solaire",
       x: { label: "x (m)" },
       y: { label: "y (m)" },
       marks : [
