@@ -10,7 +10,7 @@
 #include "algo.h"
 
 //MACRO
-#define CONSTANTE_GRAVITATION_UNIVERSELLE 6.674184E+11
+#define CONSTANTE_GRAVITATION_UNIVERSELLE 6.674184E-11
 #define MASSE_SOLEIL_KG 1.989000E+30
 #define MASSE_TERRE_KG 5.972000E+24
 
@@ -25,7 +25,7 @@ extern const struct Coordinates v0;
 double calc_norme(struct Coordinates vector);
 struct Coordinates calc_acceleration(struct Coordinates vect_r);
 struct Coordinates calc_vitesse(struct Coordinates vect_v, struct Coordinates vect_acc);
-struct Coordinates calc_position(struct Coordinates vect_r, struct Coordinates vect_v);
+struct Coordinates calc_position(struct Coordinates vect_r, struct Coordinates vect_v_news);
 // ===
 double calc_e_cinetique(struct Coordinates vect_v);
 double calc_e_potentiel(struct Coordinates vect_r);
