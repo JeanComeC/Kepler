@@ -15,3 +15,5 @@ sources = files(
 
 # On rajoute les dépendances à la fin :
 executable('kepler.exe', sources, dependencies: math_dep)
+
+#gcc src/main.c -I $(RAYLIB) -L $(RAYLIB) -lraylib -lGL -lm -lpthread -ldl -lrt -lX11
