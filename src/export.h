@@ -12,8 +12,6 @@
 //MACRO
 #define PATH_EXPORT_JSON "website/data.json"
 
-//ENUMERATION
-
 
 //PROTOTYPE
 bool writting_json(const char* path_json, struct Data_output* tab_data);

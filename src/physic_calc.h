@@ -18,8 +18,6 @@
 extern const struct Coordinates r0;
 extern const struct Coordinates v0;
 
-//STRUCTURE
-
 
 //PROTOTYPE
 double calc_norme(struct Coordinates vector);
