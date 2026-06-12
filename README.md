@@ -1,24 +1,29 @@
 # KEPLER
 
 ## Concept
-**Kepler** est un projet implémentant un générateur de labyrinthes en C, basé sur l'algorithme Randomized Depth-First Search (RDFS). Le labyrinthe est représenté sous forme de grille de cellules reliées entre elles. Une fois généré, le labyrinthe peut être résolu par trois algorithmes au choix : BFS, Dijkstra, ou A*. Le programme s'exécute en ligne de commande en précisant les dimensions souhaitées.
+**Kepler** est un projet de simulation physique de la trajectoire de la Terre autour du Soleil. Un programme en C effectue une intégration numérique (méthode d'Euler) des équations du mouvement à partir des positions et vitesses initiales de la Terre, calculant à chaque pas horaire sa position (x, y, z) ainsi que ses énergies cinétique et potentielle sur une année complète. Les résultats sont exportés au format JSON, puis visualisés via une page web interactive (https://jeancomec.github.io/Kepler/index.html) affichant la trajectoire orbitale animée et l'évolution des énergies cinétique, potentielle et totale au fil du temps.
 
 ## Structure des Fichiers
 Le projet est organisé comme suit :
 
 - **src/** : Répertoire contenant les fichiers source du projet.
-  - **main.c** : Point d'entrée du programme, responsable de l'initialisation, de la génération et de la résolution du Labyrinthe.
-  - **physic_calc.c** : Contient les fonctions pour initialiser et générer le Labyrinthe,  et pour l'afficher.
-  - **algo.c** : Contient toutes les fonctions relatives à l'algorithme Breadth First Search (BFS).
-  - **export.c** : Contient toutes les fonctions relatives à l'algorithme Djikstra.
-  - **physic_calc.h**, **algo.h**, **export.h** : Headerfiles définissant les structures (`Cell`, `Grid`, `Position`, ...), les macros, les prototypes des fonctions, et incluant les bibliothèques nécessaires.
+  - **main.c** : Point d'entrée du programme, responsable de l'initialisation, du calcul et de l'écriture des data de la trajectoire.
+  - **physic_calc.c** : Contient les fonctions pour calculer les positions pour la trajectoire.
+  - **algo.c** : Contient toutes les fonctions pour gérer les tableaux dynamiques.
+  - **export.c** : Contient toutes les fonctions relatives à l'écriture pour l'export en fichier .json .
+  - **physic_calc.h**, **algo.h**, **export.h** : Headerfiles définissant les structures (`Coordinates`, `Data_output`), les macros, les prototypes des fonctions, et incluant les bibliothèques nécessaires.
 
 - **website/** : Répertoire contenant les fichiers source du site web (HTML/CSS/JS/JSON).
-  - **index.html** : ...
+  - **d3.js** : ...
+  - **plot.js** : ...
+  - **graphs.js** : ...
   - **script.js** : ...
+  - **style.css** : ...
+  - **data.json** : ...
 
+- **index.html** : ...
 - **meson.build** : Simplifie la compilation du projet.
-- **.gitignore** : Liste les fichiers et dossiers à exclure du suivi Git, comme les fichiers compilés (.o, .exe) afin de ne pas les versionner.
+- **.gitignore** : Liste les fichiers et dossiers à exclure du suivi Git, comme les fichiers compilés (.o, .exe, .json) afin de ne pas les versionner.
 - **LICENSE** : MIT License
 - **README.md** : Ce fichier, décrivant le projet, sa structure, et les instructions d'exécution.
 
@@ -30,7 +35,7 @@ Le projet est organisé comme suit :
 ## Instructions pour lancer le programme
 1. **Cloner le dépôt** :
    ```bash
-   git clone https://github.com/JeanComeC/Kepler.git
+   git clone git@github.com:JeanComeC/Kepler.git
    cd Kepler
    ```
 
@@ -64,18 +69,9 @@ Le projet est organisé comme suit :
    ```bash
    sudo apt update && sudo apt upgrade && sudo apt autoremove && sudo apt clean
    ```
-- Si vous n'avez pas installé meson, faites-le avec la commande :
+- Si vous n'avez pas installé meson et ninja, faites-le avec la commande :
    ```bash
-   sudo apt install meson
-   ```
-- Si vous voulez supprimer les fichiers compilés (.o, .exe) de votre machine, faites-le avec la commande :
-   ```bash
-   meson compile -C build --clean
-   ```
-- Si vous voulez supprimer tout notre projet de votre machine, faites-le avec la commande :
-   ```bash
-   cd ..
-   rm -rf Kepler
+   sudo apt install meson ninja-build build-essential
    ```
 - Si votre agent SSH s'est déconnecté :
    ```bash
@@ -83,4 +79,13 @@ Le projet est organisé comme suit :
    ssh-add -l
    ssh-add ~/.ssh/name_your_key
    ssh -T git@github.com
+   ```
+   - Si vous voulez supprimer les fichiers compilés (.o, .exe) de votre machine, faites-le avec la commande :
+   ```bash
+   meson compile -C build --clean
+   ```
+- Si vous voulez supprimer tout notre projet de votre machine, faites-le avec la commande :
+   ```bash
+   cd ..
+   rm -rf Kepler
    ```

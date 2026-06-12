@@ -1,3 +1,4 @@
 #GITIGNORE :
 /.cache
+website/mercury.json
 #website/data.json
