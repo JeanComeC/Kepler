@@ -79,7 +79,7 @@ Le projet est organisé comme suit :
    ssh-add ~/.ssh/name_your_key
    ssh -T git@github.com
    ```
-   - Si vous voulez supprimer les fichiers compilés (.o, .exe) de votre machine, faites-le avec la commande :
+- Si vous voulez supprimer les fichiers compilés (.o, .exe) de votre machine, faites-le avec la commande :
    ```bash
    meson compile -C build --clean
    ```
