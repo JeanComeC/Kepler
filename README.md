@@ -58,12 +58,10 @@ Le projet est organisé comme suit :
 
 5. **Ouvrer le site web** :
    Lancer la page :
-   /website/index.html
+   index.html
 
 ## Notes
-- Assurez-vous que `...` et `...` soient correctement mis au lancement et qu'ils ne dépassent pas les capacités de votre machine. Vous pouvez modifier les macros `...` et `...` prévues à cet effet.
-- Arbitrairement, l'entrée du Labyrinthe se situe en bas à gauche, et la sortie en haut à droite.
-- Le programme se termine lorsque l'algorithme choisit par l'utilisateur a fini de résoudre le Labyrinthe.
+- Assurez-vous que `H_PAS_TEMPOREL_SECONDE` et `MAX_POINT` soient correctement mis au lancement et qu'ils ne dépassent pas les capacités de votre machine.
 - Si vous n'avez pas fait les mises à jour, faites-les, avant de compiler le programme, avec la commande :
    ```bash
    sudo apt update && sudo apt upgrade && sudo apt autoremove && sudo apt clean
