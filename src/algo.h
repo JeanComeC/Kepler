@@ -11,8 +11,6 @@
 #define H_PAS_TEMPOREL_SECONDE 3600
 #define MAX_POINT 8766
 
-//ENUMERATION
-
 
 //STRUCTURE
 struct Coordinates{

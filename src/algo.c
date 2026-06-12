@@ -14,4 +14,3 @@ void destroy_tab_data(struct Data_output* tab_data){
     tab_data=NULL;
 }
 
-
