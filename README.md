@@ -86,7 +86,7 @@ Le projet est organisé comme suit :
    cd ..
    rm -rf Kepler
    ```
-- Si vous n'avez pas installé raylib :
+- Si vous n'avez pas installé raylib et pkg-config :
    ```bash
    sudo apt install libasound2-dev libx11-dev libxrandr-dev libxi-dev libgl1-mesa-dev libglu1-mesa-dev libxcursor-dev libxinerama-dev libwayland-dev libxkbcommon-dev
    git clone --depth 1 https://github.com/raysan5/raylib.git raylib
@@ -95,5 +95,6 @@ Le projet est organisé comme suit :
    sudo make install RAYLIB_LIBTYPE=SHARED # Dynamic shared version.
    cd ..
    rm -rf raylib
+   sudo apt update && sudo apt install pkg-config
    ```
    
