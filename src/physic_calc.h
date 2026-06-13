@@ -15,8 +15,8 @@
 #define MASSE_TERRE_KG 5.972000E+24
 
 //CONSTANTES GLOBALES
-extern const struct Coordinates r0;
-extern const struct Coordinates v0;
+extern const struct Coordinates r0_Earth;
+extern const struct Coordinates v0_Earth;
 
 
 //PROTOTYPE
