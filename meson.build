@@ -17,7 +17,6 @@ sources = files(
   'src/main.c',
   'src/physic_calc.c',
   'src/algo.c',
-  'src/export.c',
   'src/logic.c',
   'src/render.c'
 )

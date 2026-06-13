@@ -1,6 +1,5 @@
 #include "physic_calc.h"
 #include "algo.h"
-#include "export.h"
 #include "logic.h"
 #include "render.h"
 #include <stdio.h>
