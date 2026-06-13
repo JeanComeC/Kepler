@@ -19,11 +19,11 @@ struct Coordinates{
     double z;
 };
 
-struct Data_output{
-    double t;
+struct Data{
+    double time;
     struct Coordinates coordinates;
-    double ke;
-    double pe;
+    struct Coordinates vitesse;
+    double fuel;
 };
 
 //PROTOTYPE
