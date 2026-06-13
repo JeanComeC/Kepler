@@ -24,9 +24,6 @@ double calc_norme(struct Coordinates vector);
 struct Coordinates calc_acceleration(struct Coordinates vect_r);
 struct Coordinates calc_vitesse(struct Coordinates vect_v, struct Coordinates vect_acc);
 struct Coordinates calc_position(struct Coordinates vect_r, struct Coordinates vect_v_news);
-// ===
-double calc_e_cinetique(struct Coordinates vect_v);
-double calc_e_potentiel(struct Coordinates vect_r);
 
 // ===
 bool main_calculation(struct Data_output* tabmain);

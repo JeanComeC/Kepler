@@ -1,10 +1,8 @@
 #include "physic_calc.h"
-#include "src/algo.h"
-#include <stddef.h>
 
 //Constantes globales :
-const struct Coordinates r0 = {.x=-1.470981E+11, .y=0.0, .z=0.0};
-const struct Coordinates v0 = {.x=0.0, .y=3.029113E+04, .z=0.0};
+const struct Coordinates r0_Earth = {.x=-1.470981E+11, .y=0.0, .z=0.0};
+const struct Coordinates v0_Earth = {.x=0.0, .y=3.029113E+04, .z=0.0};
 
 // ===
 
@@ -40,24 +38,12 @@ struct Coordinates calc_position(struct Coordinates vect_r, struct Coordinates v
     return vect_r_output;
 }
 
-// ===
-
-double calc_e_cinetique(struct Coordinates vect_v){
-    double d_ke=0.5*MASSE_TERRE_KG*pow(calc_norme(vect_v),2);
-    return d_ke;
-}
-
-double calc_e_potentiel(struct Coordinates vect_r){
-    double d_pe=-1.0*CONSTANTE_GRAVITATION_UNIVERSELLE*((MASSE_SOLEIL_KG*MASSE_TERRE_KG)/calc_norme(vect_r));
-    return d_pe;
-}
-
 
 // ===
 
 bool main_calculation(struct Data_output* tabmain){
-    struct Coordinates vect_v=v0;
-    struct Coordinates vect_r=r0;
+    struct Coordinates vect_v=v0_Earth;
+    struct Coordinates vect_r=r0_Earth;
     for(size_t i=0;i<MAX_POINT;i++){
         struct Coordinates vect_acc=calc_acceleration(vect_r);
         struct Coordinates vect_v_news=calc_vitesse(vect_v,vect_acc);
