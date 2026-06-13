@@ -27,8 +27,8 @@ struct Data{
 };
 
 //PROTOTYPE
-struct Data_output* create_tab_data(size_t size_tab);
-void destroy_tab_data(struct Data_output* tab_data);
+//struct Data_output* create_tab_data(size_t size_tab);
+//void destroy_tab_data(struct Data_output* tab_data);
 
 
 #endif

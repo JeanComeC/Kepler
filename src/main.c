@@ -13,20 +13,20 @@ int main(void){
         perror("Error MAX_POINT isn't valid.\n");
         exit(1);
     }
-    struct Data_output* tabmain=create_tab_data(MAX_POINT);
+    //struct Data_output* tabmain=create_tab_data(MAX_POINT);
 
     //Calculation
-    if(!main_calculation(tabmain)){
-        perror("Error in main_calculation()\n");
-        destroy_tab_data(tabmain);
-        exit(1);
-    }
+    // if(!main_calculation(tabmain)){
+    //     perror("Error in main_calculation()\n");
+    //     destroy_tab_data(tabmain);
+    //     exit(1);
+    // }
 
     //Graphic render
     
 
     //Cleaning
-    destroy_tab_data(tabmain);
+    //destroy_tab_data(tabmain);
     printf("Finished ...\n");
     return 0;
 }
