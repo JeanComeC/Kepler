@@ -1,6 +1,8 @@
 #include "physic_calc.h"
 #include "algo.h"
 #include "export.h"
+#include "logic.h"
+#include "render.h"
 #include <stdio.h>
 
 
@@ -21,12 +23,8 @@ int main(void){
         exit(1);
     }
 
-    //Writting & Export
-    if(!writting_json(PATH_EXPORT_JSON,tabmain)){
-        perror("Error in writting_json()\n");
-        destroy_tab_data(tabmain);
-        exit(1);
-    }
+    //Graphic render
+    
 
     //Cleaning
     destroy_tab_data(tabmain);
