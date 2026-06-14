@@ -27,7 +27,7 @@ struct Data_Earth{
 struct Data_Rocket{
     struct Coordinates position;
     struct Coordinates vitesse;
-    double fuel;
+    //double fuel;
 };
 
 struct Tab_Earth{

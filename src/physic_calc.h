@@ -25,7 +25,5 @@ struct Coordinates calc_acceleration(struct Coordinates vect_r);
 struct Coordinates calc_vitesse(struct Coordinates vect_v, struct Coordinates vect_acc);
 struct Coordinates calc_position(struct Coordinates vect_r, struct Coordinates vect_v_news);
 
-// ===
-//bool main_calculation(struct Data_output* tabmain);
 
 #endif

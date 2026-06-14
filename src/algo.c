@@ -73,3 +73,20 @@ void destroy_Tab_Rocket(struct Tab_Rocket* tab_Rocket){
 
 // ===
 
+// int nb_random0(int min, int max, int* tab_prohibited, int size_tab_prohibited){//fonction qui retourne un entier aléatoire avec tableau interdit, et appel récursif.
+//     int nbra=rand()%(max-min+1)+min;
+//     if(size_tab_prohibited==0)return nbra;//si le tableau est vide, on return direct
+//     if(size_tab_prohibited>=(max-min)+1)return -1;//et si le tableau est supérieur ou égale eux nombres de choix, c'est qu'il n'y a aucun choix possible.
+//     for(int i=0;i<size_tab_prohibited;i++){
+//         if(nbra==tab_prohibited[i]){
+//             return nb_random0(min,max,tab_prohibited,size_tab_prohibited);
+//         }
+//     }
+//     return nbra;
+// }
+
+// int nb_random1(int* tab_authorized, int size_tab_authorized){//fonction qui retourne aléatoirement un élément d'une liste d'entiers autorisés.
+//     if(size_tab_authorized<1 || tab_authorized==NULL)return -1;//gestion d'erreur
+//     int index_random=rand()%size_tab_authorized;
+//     return tab_authorized[index_random];
+// }
