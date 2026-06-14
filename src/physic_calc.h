@@ -24,6 +24,8 @@ double calc_norme(struct Coordinates vector);
 struct Coordinates calc_acceleration(struct Coordinates vect_r);
 struct Coordinates calc_vitesse(struct Coordinates vect_v, struct Coordinates vect_acc);
 struct Coordinates calc_position(struct Coordinates vect_r, struct Coordinates vect_v_news);
-
+//===
+struct Data_Earth calc_Data_Earth(struct Data_Earth data_Earth);
+struct Data_Rocket calc_Data_Rocket(struct Data_Rocket data_Rocket);
 
 #endif

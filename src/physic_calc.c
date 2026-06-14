@@ -25,11 +25,26 @@ struct Coordinates calc_vitesse(struct Coordinates vect_v, struct Coordinates ve
     return vect_v_output;
 }
 
-struct Coordinates calc_position(struct Coordinates vect_r, struct Coordinates vect_v){
+struct Coordinates calc_position(struct Coordinates vect_r, struct Coordinates vect_v_news){
     struct Coordinates  vect_r_output={0};
-    vect_r_output.x=vect_r.x+(H_PAS_TEMPOREL_SECONDE*vect_v.x);
-    vect_r_output.y=vect_r.y+(H_PAS_TEMPOREL_SECONDE*vect_v.y);
-    vect_r_output.z=vect_r.z+(H_PAS_TEMPOREL_SECONDE*vect_v.z);
+    vect_r_output.x=vect_r.x+(H_PAS_TEMPOREL_SECONDE*vect_v_news.x);
+    vect_r_output.y=vect_r.y+(H_PAS_TEMPOREL_SECONDE*vect_v_news.y);
+    vect_r_output.z=vect_r.z+(H_PAS_TEMPOREL_SECONDE*vect_v_news.z);
     return vect_r_output;
 }
 
+// ===
+
+struct Data_Earth calc_Data_Earth(struct Data_Earth data_Earth){
+    struct Data_Earth data_Earth_output={0};
+    data_Earth_output.vitesse=calc_vitesse(data_Earth.vitesse,calc_acceleration(data_Earth.position));
+    data_Earth_output.position=calc_position(data_Earth.position,data_Earth_output.vitesse);
+    return data_Earth_output;
+}
+
+struct Data_Rocket calc_Data_Rocket(struct Data_Rocket data_Rocket){
+    struct Data_Rocket data_Rocket_output={0};
+    data_Rocket_output.vitesse=calc_vitesse(data_Rocket.vitesse,calc_acceleration(data_Rocket.position));
+    data_Rocket_output.position=calc_position(data_Rocket.position,data_Rocket_output.vitesse);
+    return data_Rocket_output;
+}
