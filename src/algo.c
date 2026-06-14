@@ -39,7 +39,7 @@ void destroy_Tab_Earth(struct Tab_Earth* tab_Earth){
     tab_Earth->size=0;
 }
 
-//===
+// ===
 
 struct Tab_Rocket create_Tab_Rocket(){
     struct Tab_Rocket tab;
@@ -71,4 +71,5 @@ void destroy_Tab_Rocket(struct Tab_Rocket* tab_Rocket){
     tab_Rocket->size=0;
 }
 
+// ===
 

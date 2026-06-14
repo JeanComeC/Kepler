@@ -12,11 +12,11 @@
 //MACRO
 #define CONSTANTE_GRAVITATION_UNIVERSELLE 6.674184E-11
 #define MASSE_SOLEIL_KG 1.989000E+30
-#define MASSE_TERRE_KG 5.972000E+24
+#define R0_EARTH ((struct Coordinates){.x=-1.470981E+11, .y=0.0, .z=0.0})
+#define V0_EARTH ((struct Coordinates){.x=0.0, .y=3.029113E+04, .z=0.0})
+
 
 //CONSTANTES GLOBALES
-extern const struct Coordinates r0_Earth;
-extern const struct Coordinates v0_Earth;
 
 
 //PROTOTYPE
