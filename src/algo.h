@@ -9,7 +9,7 @@
 #include <stdint.h>
 
 //MACRO
-#define H_PAS_TEMPOREL_SECONDE 3600
+#define H_PAS_TEMPOREL_SECONDE 60
 
 
 //STRUCTURE
