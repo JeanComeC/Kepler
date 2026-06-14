@@ -1,5 +1,4 @@
 #include "algo.h"
-#include <stddef.h>
 
 
 struct Tab_Earth create_Tab_Earth(){
@@ -67,7 +66,7 @@ void add_Tab_Rocket(struct Tab_Rocket* tab_Rocket,struct Data_Rocket new_data){
 
 void destroy_Tab_Rocket(struct Tab_Rocket* tab_Rocket){
     free(tab_Rocket->data);
-    tab_Rocket=NULL;
+    tab_Rocket->data=NULL;
     tab_Rocket->capacity=0;
     tab_Rocket->size=0;
 }

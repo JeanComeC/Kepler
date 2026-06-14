@@ -2,6 +2,7 @@
 #define ALGO_H
 
 //BIBLIOTHEQUE
+#include <stddef.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdbool.h>
