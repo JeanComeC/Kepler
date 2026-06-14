@@ -17,6 +17,8 @@
 
 
 //PROTOTYPE
+bool stop_condition(struct Data_Earth data_Earth, struct Data_Rocket data_Rocket);
+bool main_logic(struct Tab_Earth* tab_Earth,struct Tab_Rocket* tab_Rocket);
 
 
 #endif
