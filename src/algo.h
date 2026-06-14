@@ -9,7 +9,6 @@
 
 //MACRO
 #define H_PAS_TEMPOREL_SECONDE 3600
-#define MAX_POINT 8766
 
 
 //STRUCTURE
@@ -19,11 +18,32 @@ struct Coordinates{
     double z;
 };
 
-struct Data{
-    double time;
-    struct Coordinates coordinates;
+struct Data_Earth{
+    struct Coordinates position;
+    struct Coordinates vitesse;
+};
+
+struct Data_Rocket{
+    struct Coordinates position;
     struct Coordinates vitesse;
     double fuel;
+};
+
+struct Tab_Earth{
+    struct Data_Earth* data;
+    size_t size;
+    size_t capacity;
+};
+
+struct Tab_Rocket{
+    struct Data_Rocket* data;
+    size_t size;
+    size_t capacity;
+};
+
+struct Player{
+    char pseudo[16];
+    int nb_life;
 };
 
 //PROTOTYPE
