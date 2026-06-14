@@ -3,6 +3,8 @@
 
 //BIBLIOTHEQUE
 #include <stdio.h>
+#include <stdbool.h>
+#include "algo.h"
 
 //MACRO
 
@@ -11,7 +13,7 @@
 
 
 //PROTOTYPE
-
+bool main_render(struct Tab_Earth* tab_Earth,struct Tab_Rocket* tab_Rocket);
 
 
 #endif

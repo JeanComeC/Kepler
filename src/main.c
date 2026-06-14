@@ -16,7 +16,7 @@ int main(void){
     struct Tab_Earth tab_Earth=create_Tab_Earth();
     struct Tab_Rocket tab_Rocket=create_Tab_Rocket();
 
-    //Calculation
+    //Calculation & Logic
     // if(!main_calculation(tabmain)){
     //     perror("Error in main_calculation()\n");
     //     destroy_tab_data(tabmain);
@@ -24,7 +24,12 @@ int main(void){
     // }
 
     //Graphic render
-    
+    if(!main_render(&tab_Earth,&tab_Rocket)){
+        perror("Error in main_render()\n");
+        destroy_Tab_Earth(&tab_Earth);
+        destroy_Tab_Rocket(&tab_Rocket);
+        exit(1);
+    }
 
     //Cleaning
     destroy_Tab_Earth(&tab_Earth);
