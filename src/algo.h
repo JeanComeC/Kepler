@@ -47,8 +47,13 @@ struct Player{
 };
 
 //PROTOTYPE
-//struct Data_output* create_tab_data(size_t size_tab);
-//void destroy_tab_data(struct Data_output* tab_data);
+struct Tab_Earth create_Tab_Earth();
+void add_Tab_Earth(struct Tab_Earth* tab_Earth,struct Data_Earth new_data);
+void destroy_Tab_Earth(struct Tab_Earth* tab_Earth);
+//===
+struct Tab_Rocket create_Tab_Rocket();
+void add_Tab_Rocket(struct Tab_Rocket* tab_Rocket,struct Data_Rocket new_data);
+void destroy_Tab_Rocket(struct Tab_Rocket* tab_Rocket);
 
 
 #endif
