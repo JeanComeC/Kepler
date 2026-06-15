@@ -9,16 +9,10 @@
 
 //MACRO
 
-#define WINDOW_WIDTH 1200
-#define WINDOW_HEIGHT 800
+#define WINDOW_WIDTH 1920
+#define WINDOW_HEIGHT 1080
 
 
-//struct 
-
-struct Stars{
-    int x;
-    int y;
-};
 
 
 
@@ -28,7 +22,8 @@ struct Stars{
 
 //PROTOTYPE
 bool main_render(struct Tab_Earth* tab_Earth,struct Tab_Rocket* tab_Rocket);
-void starInit(struct Stars star[], int n);
-void drawStars(struct Stars star[], int n);
+void starInit(struct Coordinates star[], int n);
+void drawStars(struct Coordinates star[], int n);
+void drawSun(struct Coordinates origin);
 
 #endif
