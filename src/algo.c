@@ -1,4 +1,7 @@
 #include "algo.h"
+#include "src/logic.h"
+#include "src/physic_calc.h"
+#include <stdlib.h>
 
 
 struct Tab_Earth create_Tab_Earth(){
@@ -73,20 +76,23 @@ void destroy_Tab_Rocket(struct Tab_Rocket* tab_Rocket){
 
 // ===
 
-// int nb_random0(int min, int max, int* tab_prohibited, int size_tab_prohibited){//fonction qui retourne un entier aléatoire avec tableau interdit, et appel récursif.
-//     int nbra=rand()%(max-min+1)+min;
-//     if(size_tab_prohibited==0)return nbra;//si le tableau est vide, on return direct
-//     if(size_tab_prohibited>=(max-min)+1)return -1;//et si le tableau est supérieur ou égale eux nombres de choix, c'est qu'il n'y a aucun choix possible.
-//     for(int i=0;i<size_tab_prohibited;i++){
-//         if(nbra==tab_prohibited[i]){
-//             return nb_random0(min,max,tab_prohibited,size_tab_prohibited);
-//         }
-//     }
-//     return nbra;
-// }
+double random_double_for_position(){
+    double nb_random_output;
+    bool is_valid=false;
+    while(!is_valid){
+        nb_random_output=(drand48()*DISTANCE_MAX_ROCKET*2)-DISTANCE_MAX_ROCKET;//to have a negative or positive number
 
-// int nb_random1(int* tab_authorized, int size_tab_authorized){//fonction qui retourne aléatoirement un élément d'une liste d'entiers autorisés.
-//     if(size_tab_authorized<1 || tab_authorized==NULL)return -1;//gestion d'erreur
-//     int index_random=rand()%size_tab_authorized;
-//     return tab_authorized[index_random];
-// }
+        if(nb_random_output<DISTANCE_MAX_NUAGE && nb_random_output>-DISTANCE_MAX_NUAGE){
+            //too close to the Sun
+            continue;
+        }
+        if(nb_random_output<(2*DISTANCE_MAX_NUAGE+R0_EARTH.x) && nb_random_output>(2*DISTANCE_MAX_NUAGE-R0_EARTH.x)){
+            //too close to the Earth
+            continue;
+        }
+        is_valid=true;
+    }
+    return nb_random_output;
+}
+
+
