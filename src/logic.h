@@ -21,6 +21,7 @@
 //PROTOTYPE
 struct Coordinates init_random_position();
 bool stop_condition(enum Code_exit* code_exit, struct Data_Earth data_Earth, struct Data_Rocket data_Rocket,size_t nb_pas);
+struct Coordinates cheat(struct Coordinates r0_f);
 
 //===
 bool main_logic(struct Tab_Earth* tab_Earth,struct Tab_Rocket* tab_Rocket, enum Code_exit* code_exit);
