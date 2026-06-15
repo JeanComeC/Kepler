@@ -7,10 +7,11 @@
 #include <stdlib.h>
 #include <stdbool.h>
 #include <stdint.h>
+#include <time.h>
 
 //MACRO
 #define H_PAS_TEMPOREL_SECONDE 3600
-
+#define DISTANCE_MAX_NUAGE 1E+04
 
 //STRUCTURE
 struct Coordinates{
@@ -56,6 +57,6 @@ struct Tab_Rocket create_Tab_Rocket();
 void add_Tab_Rocket(struct Tab_Rocket* tab_Rocket,struct Data_Rocket new_data);
 void destroy_Tab_Rocket(struct Tab_Rocket* tab_Rocket);
 //===
-
+double random_double_for_position();
 
 #endif
