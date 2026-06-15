@@ -14,7 +14,8 @@
 
 
 //CONSTANTES GLOBALES
-#define DISTANCE_MAX_ROCKET 7.5E+11
+#define DISTANCE_MAX_R0_ROCKET 7.5E+11
+#define DISTANCE_MAX_UNIVERS 1E+12
 
 //PROTOTYPE
 struct Coordinates init_random_position();
