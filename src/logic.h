@@ -10,16 +10,25 @@
 #include "physic_calc.h"
 
 
-//MACRO
+//ENUMERATION
+enum Code_exit{
+    CRASH_SOLAIRE,
+    SORTIE_VIDE_SPATIAL,
+    ATTERRISSAGE,
+    CRASH_TERRESTRE,
+    PANNE_CARBURANT,
+};
 
 
 //CONSTANTES GLOBALES
 #define DISTANCE_MAX_R0_ROCKET 7.5E+11
 #define DISTANCE_MAX_UNIVERS 1E+12
+#define NB_PAS_MAX 24*3
+#define NORME_VITESSE_MAX_IMPACT 5
 
 //PROTOTYPE
 struct Coordinates init_random_position();
-bool stop_condition(struct Data_Earth data_Earth, struct Data_Rocket data_Rocket,size_t nb_pas);
+bool stop_condition(enum Code_exit* code_exit, struct Data_Earth data_Earth, struct Data_Rocket data_Rocket,size_t nb_pas);
 
 //===
 bool main_logic(struct Tab_Earth* tab_Earth,struct Tab_Rocket* tab_Rocket);
