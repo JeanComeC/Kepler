@@ -28,6 +28,7 @@ struct InputState {
 
 
 //PROTOTYPE
+struct Coordinates render_v0_Rocket();
 bool main_render(struct Tab_Earth* tab_Earth,struct Tab_Rocket* tab_Rocket);
 void starInit(struct Coordinates star[], int n);
 void drawStars(struct Coordinates star[], int n);
