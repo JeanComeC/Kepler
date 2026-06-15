@@ -10,7 +10,9 @@ Le projet est organisé comme suit :
   - **main.c** : Point d'entrée du programme, responsable de l'initialisation, du calcul et de l'écriture des data de la trajectoire.
   - **physic_calc.c** : Contient les fonctions pour calculer les positions pour la trajectoire.
   - **algo.c** : Contient toutes les fonctions pour gérer les tableaux dynamiques.
-  - **physic_calc.h**, **algo.h**, **logic.h** : Headerfiles définissant les structures (`Coordinates`, `Data_output`), les macros, les prototypes des fonctions, et incluant les bibliothèques nécessaires.
+  - **logic.c** : Contient le coeur logique du programme.
+  - **render.c** : Contient les fonctions concernant l'interface graphique.
+  - **physic_calc.h**, **algo.h**, **logic.h**, **render.h** : Headerfiles définissant les structures (`Coordinates`, `Data_Earth`, `Data_Rocket`,...), les macros, les prototypes des fonctions, et incluant les bibliothèques nécessaires.
 
 - **website/** : Répertoire contenant les fichiers source du site web (HTML/CSS/JS/JSON).
   - **d3.js** : Est une bibliothèque de manipulation de données et de SVG.
