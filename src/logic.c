@@ -10,6 +10,7 @@ struct Coordinates init_random_position(){
 }
 
 bool stop_condition(struct Data_Earth data_Earth, struct Data_Rocket data_Rocket,size_t nb_pas){
+    if(nb_pas==10)return true;
     return false;
 }
 
