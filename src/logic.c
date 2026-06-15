@@ -41,11 +41,27 @@ bool stop_condition(enum Code_exit* code_exit, struct Data_Earth data_Earth, str
 }
 
 struct Coordinates cheat(struct Coordinates r0_f){
-    struct Coordinates v0_Rocket={0};
-    v0_Rocket.y=-1*(sqrt(CONSTANTE_GRAVITATION_UNIVERSELLE * MASSE_SOLEIL_KG * ((2.0 / calc_norme(r0_f)) - (2.0 / (calc_norme(r0_f) + R0_EARTH.x)))));
+    // === MODIFIABLE ===
+    int frames_avant_impact = 200;// La fusée mettra 200 frames à arriver
+    // === ********** ===
+    double temps_vol = frames_avant_impact * H_PAS_TEMPOREL_SECONDE;
+    double rayon_orbite = calc_norme(R0_EARTH);
+    double angle_actuel = atan2(R0_EARTH.y,R0_EARTH.x);
+    double vitesse_angulaire = (2.0 * M_PI) / (365.25 * 24.0 * 3600.0);
+    double angle_futur = angle_actuel + (vitesse_angulaire * temps_vol);
+    struct Coordinates terre_future;
+    terre_future.x = rayon_orbite * cos(angle_futur);
+    terre_future.y = rayon_orbite * sin(angle_futur);
+    terre_future.z = 0.0;
+    struct Coordinates v0_Rocket;
+    v0_Rocket.x = (terre_future.x - r0_f.x) / temps_vol;
+    v0_Rocket.y = (terre_future.y - r0_f.y) / temps_vol;
+    v0_Rocket.z = 0.0;
+    struct Coordinates acc_soleil = calc_acceleration(r0_f);
+    v0_Rocket.x -= (acc_soleil.x * temps_vol) / 2.0;
+    v0_Rocket.y -= (acc_soleil.y * temps_vol) / 2.0;
     return v0_Rocket;
 }
-
 
 // ===
 
@@ -53,10 +69,12 @@ bool main_logic(struct Tab_Earth* tab_Earth,struct Tab_Rocket* tab_Rocket,enum C
     struct Coordinates r0_Rocket=init_random_position();
     //On récupère le v0_Rocket :
     struct Coordinates v0_Rocket=render_v0_Rocket();
+    //===
+    bool bool1_obscur=false;
     if(CHEAT_CODE && v0_Rocket.x==0.0 && v0_Rocket.y==3.141592E+03 && v0_Rocket.z==0.0){
         v0_Rocket=cheat(r0_Rocket);
+        bool1_obscur=true;
     }
-    //===
     struct Data_Earth data_Earth={R0_EARTH,V0_EARTH};
     struct Data_Rocket data_Rocket={r0_Rocket,v0_Rocket};
     while(!stop_condition(code_exit,data_Earth,data_Rocket,tab_Rocket->size)){
@@ -70,7 +88,7 @@ bool main_logic(struct Tab_Earth* tab_Earth,struct Tab_Rocket* tab_Rocket,enum C
         data_Rocket=data_Rocket_news;
     }
     //
-    if(CHEAT_CODE && v0_Rocket.x==0.0 && v0_Rocket.y==3.141592E+03 && v0_Rocket.z==0.0){
+    if(CHEAT_CODE && bool1_obscur){
         *code_exit=ATTERRISSAGE;
     }
     return true;
