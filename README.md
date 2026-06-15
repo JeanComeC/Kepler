@@ -11,7 +11,7 @@ Le projet est organisé comme suit :
   - **physic_calc.c** : Contient les fonctions pour calculer les positions pour la trajectoire.
   - **algo.c** : Contient toutes les fonctions pour gérer les tableaux dynamiques.
   - **logic.c** : Contient le coeur logique du programme.
-  - **render.c** : Contient les fonctions concernant l'interface graphique.
+  - **render.c** : Contient toutes les fonctions concernant l'interface graphique.
   - **physic_calc.h**, **algo.h**, **logic.h**, **render.h** : Headerfiles définissant les structures (`Coordinates`, `Data_Earth`, `Data_Rocket`,...), les macros, les prototypes des fonctions, et incluant les bibliothèques nécessaires.
 
 - **website/** : Répertoire contenant les fichiers source du site web (HTML/CSS/JS/JSON).
