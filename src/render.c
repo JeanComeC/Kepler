@@ -40,18 +40,61 @@ void drawEarth(struct Tab_Earth* tab, int i, struct Coordinates origin, double s
     DrawCircle((int)px, (int)py, 5, BLUE);
 }
 
+struct Coordinates render_v0_Rocket()
+{
+    InitWindow(WINDOW_WIDTH, WINDOW_HEIGHT, "Intro Kepler");
+
+    struct InputState input = {"", "", 0};
+    struct Coordinates v0 = {0};
+
+    bool finished = false;
+
+    while (!WindowShouldClose() && !finished)
+    {
+        BeginDrawing();
+        ClearBackground(BLACK);
+
+        DrawText("Entrez vx:", 100, 100, 20, WHITE);
+        DrawText(input.vx, 300, 100, 20, GREEN);
+
+        DrawText("Entrez vy:", 100, 150, 20, WHITE);
+        DrawText(input.vy, 300, 150, 20, GREEN);
+
+        int touche = GetCharPressed();
+
+        if (touche >= '0' && touche <= '9')
+        {
+            if (input.champ_actif == 0)
+                strncat(input.vx, (char[]){touche, 0}, 1);
+            else
+                strncat(input.vy, (char[]){touche, 0}, 1);
+        }
+
+        if (IsKeyPressed(KEY_TAB))
+            input.champ_actif = 1;
+
+        if (IsKeyPressed(KEY_ENTER))
+        {
+            v0.x = atof(input.vx);
+            v0.y = atof(input.vy);
+            finished = true;
+        }
+
+        EndDrawing();
+    }
+
+    CloseWindow();
+    return v0;
+}
 
 bool main_render(struct Tab_Earth* tab_Earth,struct Tab_Rocket* tab_Rocket){
-
+    render_v0_Rocket();
     InitWindow(WINDOW_WIDTH, WINDOW_HEIGHT, "KEPLER");
     struct Coordinates stars[1080];
     starInit(stars, 1080);
     struct Coordinates origin;
     origin.x = 960;
     origin.y = 540;
-    //bool en_saisie = true;
-    // struct InputState input = {"", "", 0};
-    // struct Coordinates v0 = {0};
     int i = 0;
     double scale = 500.0 / 1.47e+11;
     while(!WindowShouldClose()){
@@ -60,30 +103,6 @@ bool main_render(struct Tab_Earth* tab_Earth,struct Tab_Rocket* tab_Rocket){
         drawStars(stars, 1080);
         drawSun(origin, 5);
         drawEarth(tab_Earth, i, origin, scale);
-        // if(en_saisie){
-        //     DrawText("Entrez vx:", 100, 100, 20, WHITE);
-        //     DrawText(input.vx, 300, 100, 20, GREEN);
-
-        //     DrawText("Entrez vy:", 100, 150, 20, WHITE);
-        //     DrawText(input.vy, 300, 150, 20, GREEN);
-
-        //     int touche = GetCharPressed();
-        //     if(touche >= '0' && touche <= '9'){
-        //     // ajouter le caractère au champ actif
-        //     if(input.champ_actif == 0){
-        //         strncat(input.vx, (char[]){touche, 0}, 1);
-        //     }else {
-        //         strncat(input.vy, (char[]){touche, 0}, 1);
-        //     }
-        //     }
-        //     if(IsKeyPressed(KEY_TAB)){ input.champ_actif = 1; }
-        //     if(IsKeyPressed(KEY_ENTER)){ 
-        //         v0.x = atof(input.vx); // ici jean come 
-        //         v0.y = atof(input.vy);
-        //         en_saisie = false;
-        //     }
-                
-        //}
         EndDrawing();
     
     }
