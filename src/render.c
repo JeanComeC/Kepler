@@ -1,9 +1,7 @@
 #include "render.h"
 #include <raylib.h>
 
-/*
-    === TERRITOIRE DE JULES ===
-*/
+
 
 
 void starInit(struct Stars star[], int n){
@@ -19,7 +17,7 @@ void starInit(struct Stars star[], int n){
 
 }
 
-void drawSTars(struct Stars star[], int n){
+void drawStars(struct Stars star[], int n){
     for(int i = 0; i < n; i++ ){
       Drawpixel(star[i].x, star[i].y, (Color){255, 255, 255, 255});
     }
@@ -28,11 +26,14 @@ void drawSTars(struct Stars star[], int n){
 
 bool main_render(struct Tab_Earth* tab_Earth,struct Tab_Rocket* tab_Rocket){
     InitWindow(WINDOW_WIDTH, WINDOW_HEIGHT, "KEPLER");
-
+    struct Stars stars[200];
+    starInit(stars, 200);
     while(!WindowShouldClose()){
         BeginDrawing();
         ClearBackground((Color){0, 0, 0, 255});
-        
+        drawStars(stars, 200);
+
+        EndDrawing();
     }
 
 
