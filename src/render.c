@@ -19,7 +19,7 @@ void starInit(struct Stars star[], int n){
 
 void drawStars(struct Stars star[], int n){
     for(int i = 0; i < n; i++ ){
-      Drawpixel(star[i].x, star[i].y, (Color){255, 255, 255, 255});
+      DrawPixel(star[i].x, star[i].y, (Color){255, 255, 255, 255});
     }
 }
 
