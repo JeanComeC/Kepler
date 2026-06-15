@@ -4,6 +4,7 @@
 //BIBLIOTHEQUE
 #include <stdio.h>
 #include <stdbool.h>
+#include <string.h>
 #include "algo.h"
 #include <raylib.h>
 
@@ -13,7 +14,13 @@
 #define WINDOW_HEIGHT 1080
 
 
+//structure 
 
+struct InputState {
+    char vx[20];
+    char vy[20];
+    int champ_actif; // 0 = vx, 1 = vy
+};
 
 
 //CONSTANTES GLOBALES
