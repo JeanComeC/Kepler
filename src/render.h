@@ -5,6 +5,7 @@
 #include <stdio.h>
 #include <stdbool.h>
 #include <string.h>
+#include <math.h>
 #include "algo.h"
 #include <raylib.h>
 
@@ -34,5 +35,6 @@ void starInit(struct Coordinates star[], int n);
 void drawStars(struct Coordinates star[], int n);
 void drawSun(struct Coordinates origin, int nbr_circle);
 void drawEarth(struct Tab_Earth* tab, int index, struct Coordinates origin, double scale);
+void drawRocket(struct Tab_Rocket* tab, int i, struct Coordinates origin, double scale);
 
 #endif
