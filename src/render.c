@@ -6,6 +6,7 @@
 
 
 
+
 void starInit(struct Coordinates stars[], int n){
     
     
@@ -35,21 +36,50 @@ void drawStars(struct Coordinates star[], int n){
 
 
 bool main_render(struct Tab_Earth* tab_Earth,struct Tab_Rocket* tab_Rocket){
+
     InitWindow(WINDOW_WIDTH, WINDOW_HEIGHT, "KEPLER");
     struct Coordinates stars[1080];
     starInit(stars, 1080);
-     struct Coordinates origin;
-     origin.x = 960;
-     origin.y = 540;
+    struct Coordinates origin;
+    origin.x = 960;
+    origin.y = 540;
+    bool en_saisie = true;
+    struct InputState input = {"", "", 0};
+    struct Coordinates v0 = {0};
+
     while(!WindowShouldClose()){
         BeginDrawing();
         ClearBackground((Color){0, 0, 0, 255});
         drawStars(stars, 1080);
         drawSun(origin, 5);
+        if(en_saisie){
+            DrawText("Entrez vx:", 100, 100, 20, WHITE);
+            DrawText(input.vx, 300, 100, 20, GREEN);
 
+            DrawText("Entrez vy:", 100, 150, 20, WHITE);
+            DrawText(input.vy, 300, 150, 20, GREEN);
+
+            int touche = GetCharPressed();
+            if(touche >= '0' && touche <= '9'){
+            // ajouter le caractère au champ actif
+            if(input.champ_actif == 0){
+                strncat(input.vx, (char[]){touche, 0}, 1);
+            }else {
+                strncat(input.vy, (char[]){touche, 0}, 1);
+            }
+            }
+            if(IsKeyPressed(KEY_TAB)){ input.champ_actif = 1; }
+            if(IsKeyPressed(KEY_ENTER)){ 
+                v0.x = atof(input.vx); // ici jean come 
+                v0.y = atof(input.vy);
+                en_saisie = false;
+            }
+                
+        }
         EndDrawing();
+    
     }
 
-
     return true;
+
 }
