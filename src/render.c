@@ -45,17 +45,39 @@ struct Coordinates render_v0_Rocket(){
     struct InputState input = {"", "", 0};
     struct Coordinates v0 = {0};
     bool finished = false;
+    struct Coordinates stars[1080];
     while(!WindowShouldClose() && !finished){
         BeginDrawing();
         ClearBackground(BLACK);
+        drawStars(stars, 1080);
+       // Texte d'introduction
+        DrawText(
+            "Nous sommes le 3 Janvier 3026, après un millénaire dans une autre galaxie,\n"
+            "l'humanité souhaite retourner sur Terre. On vous envoie avec votre équipage,\n"
+            "en éclaireur, pour voir si la vie est de nouveau viable sur notre planète.\n"
+            "Après un voyage de plusieurs années, vous arrivez enfin dans notre système solaire.\n"
+            "Vous devez donc faire atterrir votre navette spatiale sur Terre.\n"
+            "Y arriverez-vous ? L'avenir de l'humanité dépend de vous.",
+            180, 120, 24, WHITE
+        );
 
-        DrawText("Entrez la vitesse initiale de la fusée (format: x.xxxxxxE+xx)", 100, 40, 18, RAYWHITE);
-        DrawText("Utilisez TAB pour passer au champ suivant, ENTREE pour valider.", 100, 65, 16, GRAY);
+        // Instructions
+        DrawText(
+            "Entrez la vitesse initiale de la fusée (format : x.xxxxxxE+xx)",
+            450, 380, 28, RAYWHITE
+        );
 
-        DrawText("Entrez vx:", 100, 120, 20, WHITE);
-        DrawText(input.vx, 300, 120, 20, GREEN);
-        DrawText("Entrez vy:", 100, 170, 20, WHITE);
-        DrawText(input.vy, 300, 170, 20, GREEN);
+        DrawText(
+            "TAB : champ suivant    |    ENTREE : valider",
+            650, 430, 22, GRAY
+        );
+
+        // Champs de saisie
+        DrawText("Entrez vx :", 650, 560, 30, WHITE);
+        DrawText(input.vx,      900, 560, 30, GREEN);
+
+        DrawText("Entrez vy :", 650, 640, 30, WHITE);
+        DrawText(input.vy,      900, 640, 30, GREEN);
 
         int touche = GetCharPressed();
         if((touche>='0' && touche<='9')||(touche=='.')||(touche=='E'||touche=='e')||(touche=='+'||touche=='-')){
