@@ -9,6 +9,7 @@
 
 int main(void){
     //Initialization & Verification
+    srand48(time(NULL));
     // if(MAX_POINT<3 || MAX_POINT!=(int)((365.25*24.0*3600.0)/H_PAS_TEMPOREL_SECONDE)){
     //     perror("Error MAX_POINT isn't valid.\n");
     //     exit(1);
