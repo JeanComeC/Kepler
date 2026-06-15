@@ -34,6 +34,7 @@ int main(void){
         exit(1);
     }
 
+    printf("%d\n",code_exit);
     //Cleaning
     destroy_Tab_Earth(&tab_Earth);
     destroy_Tab_Rocket(&tab_Rocket);
