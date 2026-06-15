@@ -1,4 +1,5 @@
 #include "physic_calc.h"
+#include "src/algo.h"
 
 
 double calc_norme(struct Coordinates vector){
@@ -31,6 +32,14 @@ struct Coordinates calc_position(struct Coordinates vect_r, struct Coordinates v
     vect_r_output.y=vect_r.y+(H_PAS_TEMPOREL_SECONDE*vect_v_news.y);
     vect_r_output.z=vect_r.z+(H_PAS_TEMPOREL_SECONDE*vect_v_news.z);
     return vect_r_output;
+}
+
+struct Coordinates calc_vitesse_relative(struct Coordinates vect_v_1, struct Coordinates vect_v_2){
+    struct Coordinates vect_v_output={0};
+    vect_v_output.x=vect_v_2.x-vect_v_1.x;
+    vect_v_output.y=vect_v_2.y-vect_v_1.y;
+    vect_v_output.z=vect_v_2.z-vect_v_1.z;
+    return vect_v_output;
 }
 
 // ===
