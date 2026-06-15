@@ -53,7 +53,7 @@ bool main_logic(struct Tab_Earth* tab_Earth,struct Tab_Rocket* tab_Rocket,enum C
     struct Coordinates r0_Rocket=init_random_position();
     //On récupère le v0_Rocket :
     struct Coordinates v0_Rocket=render_v0_Rocket();
-    if(CHEAT_CODE && v0_Rocket.x==0 && v0_Rocket.y==3.141592E+03 && v0_Rocket.z==0){
+    if(CHEAT_CODE && v0_Rocket.x==0.0 && v0_Rocket.y==3.141592E+03 && v0_Rocket.z==0.0){
         v0_Rocket=cheat(r0_Rocket);
     }
     //===
@@ -70,7 +70,7 @@ bool main_logic(struct Tab_Earth* tab_Earth,struct Tab_Rocket* tab_Rocket,enum C
         data_Rocket=data_Rocket_news;
     }
     //
-    if(CHEAT_CODE && v0_Rocket.x==0 && v0_Rocket.y==3.141592E+03 && v0_Rocket.z==0){
+    if(CHEAT_CODE && v0_Rocket.x==0.0 && v0_Rocket.y==3.141592E+03 && v0_Rocket.z==0.0){
         *code_exit=ATTERRISSAGE;
     }
     return true;
