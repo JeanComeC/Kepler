@@ -80,7 +80,7 @@ double random_double_for_position(){
     double nb_random_output;
     bool is_valid=false;
     while(!is_valid){
-        nb_random_output=(drand48()*DISTANCE_MAX_ROCKET*2)-DISTANCE_MAX_ROCKET;//to have a negative or positive number
+        nb_random_output=(drand48()*DISTANCE_MAX_R0_ROCKET*2)-DISTANCE_MAX_R0_ROCKET;//to have a negative or positive number
 
         if(nb_random_output<DISTANCE_MAX_NUAGE && nb_random_output>-DISTANCE_MAX_NUAGE){
             //too close to the Sun

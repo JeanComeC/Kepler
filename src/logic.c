@@ -1,5 +1,6 @@
 #include "logic.h"
 #include "src/algo.h"
+#include "src/physic_calc.h"
 
 struct Coordinates init_random_position(){
     struct Coordinates position_Rocket_output={0};
@@ -10,6 +11,15 @@ struct Coordinates init_random_position(){
 }
 
 bool stop_condition(struct Data_Earth data_Earth, struct Data_Rocket data_Rocket,size_t nb_pas){
+    //distance fusée-soleil trop petite:
+    if(calc_norme(data_Rocket.position)<DISTANCE_MAX_NUAGE)return true;
+    //distance fusée-soleil trop grande:
+    if(calc_norme(data_Rocket.position)>DISTANCE_MAX_UNIVERS)return true;
+    //distance fusée-terre faible:
+    if(calc_norme((struct Coordinates){.x=(data_Rocket.position.x-data_Earth.position.x),.y=(data_Rocket.position.y-data_Earth.position.y),.z=(data_Rocket.position.z-data_Earth.position.z)})<DISTANCE_MAX_NUAGE){
+        if()
+    }
+    //durée trop longue:
     if(nb_pas==10)return true;
     return false;
 }
