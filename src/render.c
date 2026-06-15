@@ -79,7 +79,6 @@ struct Coordinates render_v0_Rocket(){
 }
 
 bool main_render(struct Tab_Earth* tab_Earth,struct Tab_Rocket* tab_Rocket){
-    //render_v0_Rocket();
     InitWindow(WINDOW_WIDTH, WINDOW_HEIGHT, "KEPLER");
     struct Coordinates stars[1080];
     starInit(stars, 1080);
