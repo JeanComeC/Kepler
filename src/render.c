@@ -35,10 +35,28 @@ void drawStars(struct Coordinates star[], int n){
 }
 
 void drawEarth(struct Tab_Earth* tab, int i, struct Coordinates origin, double scale){
+   // Trace de l'orbite parcourue
+    for (int j = 0; j < i; j++)
+    {
+        double x = origin.x + tab->data[j].position.x * scale;
+        double y = origin.y - tab->data[j].position.y * scale;
+
+        DrawPixel((int)x, (int)y, DARKBLUE);
+    }
+
+    // Position actuelle
     double px = origin.x + tab->data[i].position.x * scale;
     double py = origin.y - tab->data[i].position.y * scale;
-    DrawCircle((int)px, (int)py, 5, BLUE);
+
+    DrawCircle((int)px, (int)py, 15, BLUE);
 }
+
+void drawRocket(struct Tab_Rocket* tab, int i, struct Coordinates origin, double scale){
+    double px = origin.x + tab->data[i].position.x * scale;
+    double py = origin.y - tab->data[i].position.y * scale;
+    DrawCircle((int)px, (int)py, 5, RED);
+}
+
 
 struct Coordinates render_v0_Rocket(){
     InitWindow(WINDOW_WIDTH, WINDOW_HEIGHT, "Intro Kepler");
@@ -46,6 +64,7 @@ struct Coordinates render_v0_Rocket(){
     struct Coordinates v0 = {0};
     bool finished = false;
     struct Coordinates stars[1080];
+    
     while(!WindowShouldClose() && !finished){
         BeginDrawing();
         ClearBackground(BLACK);
@@ -108,16 +127,18 @@ bool main_render(struct Tab_Earth* tab_Earth,struct Tab_Rocket* tab_Rocket, enum
     origin.x = 960;
     origin.y = 540;
     int i = 0;
-    double scale = 500.0 / 1.47e+11;
+    double scale = 250.0 / 1.5e11;
     while(!WindowShouldClose()){
         BeginDrawing();
         ClearBackground((Color){0, 0, 0, 255});
         drawStars(stars, 1080);
         drawSun(origin, 5);
         drawEarth(tab_Earth, i, origin, scale);
+        drawRocket(tab_Rocket, i, origin, scale);
         EndDrawing();
-    
+        i++;
     }
+    
 
     return true;
 
