@@ -44,8 +44,11 @@ bool stop_condition(enum Code_exit* code_exit, struct Data_Earth data_Earth, str
 // ===
 
 bool main_logic(struct Tab_Earth* tab_Earth,struct Tab_Rocket* tab_Rocket){
+    //On récupère le V0_Rocket :
+    struct Coordinates v0_Rocket=render_v0_Rocket();
+    //===
     struct Data_Earth data_Earth={R0_EARTH,V0_EARTH};
-    struct Data_Rocket data_Rocket={/*fonction qui recupere la réponse du joueur*/{0},init_random_position()};
+    struct Data_Rocket data_Rocket={init_random_position(),v0_Rocket};
     enum Code_exit code_exit;
     while(!stop_condition(&code_exit,data_Earth,data_Rocket,tab_Rocket->size)){
         struct Data_Earth data_Earth_news=calc_Data_Earth(data_Earth);
