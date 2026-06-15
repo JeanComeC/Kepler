@@ -152,8 +152,8 @@ bool main_render(struct Tab_Earth* tab_Earth,struct Tab_Rocket* tab_Rocket, enum
     struct Coordinates origin;
     origin.x = 960;
     origin.y = 540;
-    int i = 0;
-   double scale = 300.0 / 3e+11;
+    size_t i = 0;
+    double scale = 300.0 / 3e+11;
     printf("size rocket: %zu\n", tab_Rocket->size);
     printf("size earth: %zu\n", tab_Earth->size);
     Camera2D camera = {0};
