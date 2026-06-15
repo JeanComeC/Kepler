@@ -22,8 +22,12 @@ bool stop_condition(enum Code_exit* code_exit, struct Data_Earth data_Earth, str
         *code_exit=SORTIE_VIDE_SPATIAL;
         return true;
     }
+    double dISTANCE_MAX_NUAGE=DISTANCE_MAX_NUAGE;
+    if(CHEAT_CODE){
+        dISTANCE_MAX_NUAGE*=100;
+    }
     //distance fusée-terre faible:
-    if(calc_norme((struct Coordinates){.x=(data_Rocket.position.x-data_Earth.position.x),.y=(data_Rocket.position.y-data_Earth.position.y),.z=(data_Rocket.position.z-data_Earth.position.z)})<DISTANCE_MAX_NUAGE){
+    if(calc_norme((struct Coordinates){.x=(data_Rocket.position.x-data_Earth.position.x),.y=(data_Rocket.position.y-data_Earth.position.y),.z=(data_Rocket.position.z-data_Earth.position.z)})<dISTANCE_MAX_NUAGE){
         //si la vitesse est trop grande:
         if(calc_norme(calc_vitesse_relative(data_Earth.vitesse,data_Rocket.vitesse))>NORME_VITESSE_MAX_IMPACT){
             *code_exit=CRASH_TERRESTRE;
