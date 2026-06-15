@@ -10,11 +10,12 @@
 int main(void){
     //Initialization & Verification
     srand48(time(NULL));
+    enum Code_exit code_exit;
     struct Tab_Earth tab_Earth=create_Tab_Earth();
     struct Tab_Rocket tab_Rocket=create_Tab_Rocket();
 
     //Calculation & Logic
-    if(!main_logic(&tab_Earth,&tab_Rocket)){
+    if(!main_logic(&tab_Earth,&tab_Rocket,&code_exit)){
         perror("Error in main_logic()\n");
         destroy_Tab_Earth(&tab_Earth);
         destroy_Tab_Rocket(&tab_Rocket);
@@ -26,7 +27,7 @@ int main(void){
     // }
 
     //Graphic render
-    // if(!main_render(&tab_Earth,&tab_Rocket)){
+    // if(!main_render(&tab_Earth,&tab_Rocket,&code_exit)){
     //     perror("Error in main_render()\n");
     //     destroy_Tab_Earth(&tab_Earth);
     //     destroy_Tab_Rocket(&tab_Rocket);

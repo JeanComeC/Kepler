@@ -48,6 +48,14 @@ struct Player{
     int nb_life;
 };
 
+enum Code_exit{
+    CRASH_SOLAIRE,
+    SORTIE_VIDE_SPATIAL,
+    ATTERRISSAGE,
+    CRASH_TERRESTRE,
+    PANNE_CARBURANT,
+};
+
 //PROTOTYPE
 struct Tab_Earth create_Tab_Earth();
 void add_Tab_Earth(struct Tab_Earth* tab_Earth,struct Data_Earth new_data);

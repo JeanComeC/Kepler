@@ -43,15 +43,14 @@ bool stop_condition(enum Code_exit* code_exit, struct Data_Earth data_Earth, str
 
 // ===
 
-bool main_logic(struct Tab_Earth* tab_Earth,struct Tab_Rocket* tab_Rocket){
+bool main_logic(struct Tab_Earth* tab_Earth,struct Tab_Rocket* tab_Rocket,enum Code_exit* code_exit){
     //On récupère le v0_Rocket :
     struct Coordinates v0_Rocket=render_v0_Rocket();
     printf("vx:%E, vy:%E, vz:%E\n",v0_Rocket.x,v0_Rocket.y,v0_Rocket.z);
     //===
     struct Data_Earth data_Earth={R0_EARTH,V0_EARTH};
     struct Data_Rocket data_Rocket={init_random_position(),v0_Rocket};
-    enum Code_exit code_exit;
-    while(!stop_condition(&code_exit,data_Earth,data_Rocket,tab_Rocket->size)){
+    while(!stop_condition(code_exit,data_Earth,data_Rocket,tab_Rocket->size)){
         struct Data_Earth data_Earth_news=calc_Data_Earth(data_Earth);
         struct Data_Rocket data_Rocket_news=calc_Data_Rocket(data_Rocket);
         //Filling
@@ -62,7 +61,6 @@ bool main_logic(struct Tab_Earth* tab_Earth,struct Tab_Rocket* tab_Rocket){
         data_Rocket=data_Rocket_news;
     }
     //
-    printf("%d\n",code_exit);
     return true;
 }
 
