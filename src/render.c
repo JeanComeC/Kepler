@@ -39,22 +39,48 @@ void drawEarth(struct Tab_Earth* tab, int i, struct Coordinates origin, double s
     for (int j = 0; j < i; j++)
     {
         double x = origin.x + tab->data[j].position.x * scale;
-        double y = origin.y - tab->data[j].position.y * scale;
+        double y = origin.y + tab->data[j].position.y * scale;
 
         DrawPixel((int)x, (int)y, DARKBLUE);
     }
 
     // Position actuelle
     double px = origin.x + tab->data[i].position.x * scale;
-    double py = origin.y - tab->data[i].position.y * scale;
+    double py = origin.y + tab->data[i].position.y * scale;
 
     DrawCircle((int)px, (int)py, 15, BLUE);
 }
 
 void drawRocket(struct Tab_Rocket* tab, int i, struct Coordinates origin, double scale){
-    double px = origin.x + tab->data[i].position.x * scale;
-    double py = origin.y - tab->data[i].position.y * scale;
-    DrawCircle((int)px, (int)py, 5, RED);
+    for(int j = 0; j <= i; j++){
+    double px = origin.x + tab->data[j].position.x * scale;
+    double py = origin.y - tab->data[j].position.y * scale;
+    DrawCircle((int)px, (int)py, 2, RED);
+}
+// point actuel plus grand
+double px = origin.x + tab->data[i].position.x * scale;
+double py = origin.y - tab->data[i].position.y * scale;
+DrawCircle((int)px, (int)py, 5, RED);
+}
+
+void drawEcranFin(enum Code_exit code){
+    switch(code){
+    case CRASH_SOLAIRE:
+        DrawText("Vous avez brûlé dans le soleil", 960, 540, 50, RED);
+        break;
+    case ATTERRISSAGE:
+        DrawText("Misson Accomplie !", 960, 540, 50, GREEN);
+        break;
+    case SORTIE_VIDE_SPATIAL:
+        DrawText("Perdu dans le vide spacial", 960, 540, 50, RED);
+        break;
+    case CRASH_TERRESTRE:
+         DrawText("crash sur la terre!", 960, 540, 50, RED);
+         break;
+    case PANNE_CARBURANT:
+         DrawText("Panne de carburant", 960, 540, 50, RED);
+         break;
+    }
 }
 
 
@@ -127,16 +153,32 @@ bool main_render(struct Tab_Earth* tab_Earth,struct Tab_Rocket* tab_Rocket, enum
     origin.x = 960;
     origin.y = 540;
     int i = 0;
-    double scale = 250.0 / 1.5e11;
+   double scale = 300.0 / 3e+11;
+    printf("size rocket: %zu\n", tab_Rocket->size);
+    printf("size earth: %zu\n", tab_Earth->size);
+    Camera2D camera = {0};
+    camera.target = (Vector2){origin.x, origin.y};
+    camera.offset = (Vector2){WINDOW_WIDTH/2.0f, WINDOW_HEIGHT/2.0f};
+    camera.zoom = 1.0f;
     while(!WindowShouldClose()){
         BeginDrawing();
         ClearBackground((Color){0, 0, 0, 255});
+        BeginMode2D(camera);
         drawStars(stars, 1080);
         drawSun(origin, 5);
-        drawEarth(tab_Earth, i, origin, scale);
-        drawRocket(tab_Rocket, i, origin, scale);
+        if(i >= tab_Rocket->size){
+            drawEcranFin(*code_exit);
+            } else {
+            double px = origin.x + tab_Rocket->data[i].position.x * scale;
+            double py = origin.y - tab_Rocket->data[i].position.y * scale;
+            printf("rocket px:%f py:%f\n", px, py);  
+            drawEarth(tab_Earth, i, origin, scale);
+            drawRocket(tab_Rocket, i, origin, scale);
+            }
         EndDrawing();
-        i++;
+        camera.zoom += GetMouseWheelMove() * 0.1f;
+        i+=10;
+
     }
     
 
