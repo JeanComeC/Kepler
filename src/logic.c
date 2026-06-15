@@ -46,7 +46,9 @@ bool stop_condition(enum Code_exit* code_exit, struct Data_Earth data_Earth, str
 bool main_logic(struct Tab_Earth* tab_Earth,struct Tab_Rocket* tab_Rocket,enum Code_exit* code_exit){
     //On récupère le v0_Rocket :
     struct Coordinates v0_Rocket=render_v0_Rocket();
-    //
+    if(CHEAT_CODE && v0_Rocket.x==0 && v0_Rocket.y==3.141592E+04 && v0_Rocket.z==0){
+        //
+    }
     //===
     struct Data_Earth data_Earth={R0_EARTH,V0_EARTH};
     struct Data_Rocket data_Rocket={init_random_position(),v0_Rocket};

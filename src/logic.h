@@ -16,6 +16,7 @@
 #define DISTANCE_MAX_UNIVERS 1E+12
 #define NB_PAS_MAX 24*30
 #define NORME_VITESSE_MAX_IMPACT 5
+#define CHEAT_CODE true
 
 //PROTOTYPE
 struct Coordinates init_random_position();
