@@ -21,6 +21,10 @@ int main(void){
         exit(1);
     }
 
+    // for(int i=0;i<tab_Earth.size;i++){
+    //     printf("xp:%E, yp:%E, zp:%E, xv:%E, yv:%E, zv:%E\n",tab_Earth.data[i].position.x,tab_Earth.data[i].position.y,tab_Earth.data[i].position.z,tab_Earth.data[i].vitesse.x,tab_Earth.data[i].vitesse.y,tab_Earth.data[i].vitesse.z);
+    // }
+
     //Graphic render
     if(!main_render(&tab_Earth,&tab_Rocket)){
         perror("Error in main_render()\n");
