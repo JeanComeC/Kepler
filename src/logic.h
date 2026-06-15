@@ -8,6 +8,7 @@
 #include <stdbool.h>
 #include "algo.h"
 #include "physic_calc.h"
+#include "render.h"
 
 
 //ENUMERATION
