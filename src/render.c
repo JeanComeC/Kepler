@@ -181,23 +181,11 @@ struct Coordinates render_v0_Rocket(){
     return v0;
 }
 /**
- * @brief Lance la boucle principale de rendu graphique de la simulation.
- *
- * Initialise la fenêtre Raylib, crée le fond étoilé, configure la caméra
- * et affiche à chaque frame le Soleil, la Terre et la fusée selon les
- * données enregistrées dans les tableaux de trajectoires.
- *
- * La caméra permet un zoom à l'aide de la molette de la souris.
- * Lorsque toutes les données de trajectoire de la fusée ont été affichées,
- * un écran de fin est dessiné à la place de la simulation.
- *
- * @param tab_Earth Pointeur vers la structure contenant les positions de la Terre.
- * @param tab_Rocket Pointeur vers la structure contenant les positions de la fusée.
- * @param code_exit Pointeur vers le code indiquant la raison de fin de la simulation,
- *                  utilisé pour l'affichage de l'écran de fin.
- *
- * @return true si la boucle de rendu se termine normalement.
- *
+ * @brief Affiche la simulation principale du jeu
+ * @param tab_Earth Tableau contenant la trajectoire de la Terre
+ * @param tab_Rocket Tableau contenant la trajectoire de la fusée
+ * @param code_exit Code de fin de partie déterminé par la simulation
+ * @return true quand la fenêtre se ferme
  * @note Les coordonnées physiques sont converties en coordonnées écran grâce
  *       au facteur d'échelle :
  *       \f$ scale = \frac{300}{3 \times 10^{11}} \f$.
