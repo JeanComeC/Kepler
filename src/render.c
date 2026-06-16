@@ -53,7 +53,7 @@ void drawStars(struct Coordinates star[], int n){
 */
 void drawEarth(struct Tab_Earth* tab, size_t i, struct Coordinates origin, double scale){
    // Trace de l'orbite parcourue
-    for (int j = 0; j < i; j++)
+    for (size_t j = 0; j < i; j++)
     {
         double x = origin.x + tab->data[j].position.x * scale;
         double y = origin.y - tab->data[j].position.y * scale;
