@@ -90,6 +90,7 @@ struct Coordinates render_v0_Rocket(){
     struct Coordinates v0 = {0};
     bool finished = false;
     struct Coordinates stars[1080];
+    starInit(stars, 1080);
     
     while(!WindowShouldClose() && !finished){
         BeginDrawing();
