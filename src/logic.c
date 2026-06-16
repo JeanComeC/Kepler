@@ -46,7 +46,7 @@ bool stop_condition(enum Code_exit* code_exit, struct Data_Earth data_Earth, str
 
 struct Coordinates cheat(struct Coordinates r0_f){
     // === MODIFIABLE ===
-    int frames_avant_impact = 200;// La fusée mettra 200 frames à arriver
+    int frames_avant_impact = 50;// La fusée mettra 200 frames à arriver
     // === ********** ===
     double temps_vol = frames_avant_impact * H_PAS_TEMPOREL_SECONDE;
     double rayon_orbite = calc_norme(R0_EARTH);
