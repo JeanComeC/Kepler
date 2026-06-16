@@ -94,8 +94,7 @@ struct Coordinates render_v0_Rocket(){
     while(!WindowShouldClose() && !finished){
         BeginDrawing();
         ClearBackground(BLACK);
-        drawStars(stars, 1080);
-       // Texte d'introduction
+        // Texte d'introduction
         DrawText(
             "Nous sommes le 3 Janvier 3026, après un millénaire dans une autre galaxie,\n"
             "l'humanité souhaite retourner sur Terre. On vous envoie avec votre équipage,\n"
@@ -124,12 +123,20 @@ struct Coordinates render_v0_Rocket(){
         DrawText("Entrez vy :", 650, 640, 30, WHITE);
         DrawText(input.vy,      900, 640, 30, GREEN);
 
+        drawStars(stars, 1080);
         int touche = GetCharPressed();
-        if((touche>='0' && touche<='9')||(touche=='.')||(touche=='E'||touche=='e')||(touche=='+'||touche=='-')){
+        if((touche>='0' && touche<='9')||(touche=='.')||(touche=='E'||touche=='e')||(touche=='+'||touche=='-')||(touche=='\b')){
             if (input.champ_actif == 0)
                 strncat(input.vx, (char[]){touche, 0}, 1);
             else
                 strncat(input.vy, (char[]){touche, 0}, 1);
+        }
+        if(IsKeyPressed(KEY_BACKSPACE)){
+        int len = strlen(input.champ_actif == 0 ? input.vx : input.vy);
+        if(len > 0){
+            if(input.champ_actif == 0) input.vx[len-1] = '\0';
+            else input.vy[len-1] = '\0';
+        }
         }
         if (IsKeyPressed(KEY_TAB))
             input.champ_actif = 1;
@@ -177,7 +184,7 @@ bool main_render(struct Tab_Earth* tab_Earth,struct Tab_Rocket* tab_Rocket, enum
             }
         EndDrawing();
         camera.zoom += GetMouseWheelMove() * 0.1f;
-        i+=10;
+        i+=3;
 
     }
     
