@@ -85,7 +85,7 @@ void drawEcranFin(enum Code_exit code){
 
 
 struct Coordinates render_v0_Rocket(){
-    InitWindow(WINDOW_WIDTH, WINDOW_HEIGHT, "Intro Kepler");
+    InitWindow(WINDOW_WIDTH, WINDOW_HEIGHT, "KEPLER-GAME");
     struct InputState input = {"", "", 0};
     struct Coordinates v0 = {0};
     bool finished = false;
@@ -147,7 +147,7 @@ struct Coordinates render_v0_Rocket(){
 }
 
 bool main_render(struct Tab_Earth* tab_Earth,struct Tab_Rocket* tab_Rocket, enum Code_exit* code_exit){
-    InitWindow(WINDOW_WIDTH, WINDOW_HEIGHT, "KEPLER");
+    InitWindow(WINDOW_WIDTH, WINDOW_HEIGHT, "KEPLER-GAME");
     struct Coordinates stars[1080];
     starInit(stars, 1080);
     struct Coordinates origin;
