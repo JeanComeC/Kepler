@@ -56,14 +56,14 @@ void drawEarth(struct Tab_Earth* tab, size_t i, struct Coordinates origin, doubl
     for (int j = 0; j < i; j++)
     {
         double x = origin.x + tab->data[j].position.x * scale;
-        double y = origin.y + tab->data[j].position.y * scale;
+        double y = origin.y - tab->data[j].position.y * scale;
 
         DrawPixel((int)x, (int)y, DARKBLUE);
     }
 
     // Position actuelle
     double px = origin.x + tab->data[i].position.x * scale;
-    double py = origin.y + tab->data[i].position.y * scale;
+    double py = origin.y - tab->data[i].position.y * scale;
 
     DrawCircle((int)px, (int)py, 15, BLUE);
 }
