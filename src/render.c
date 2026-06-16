@@ -53,14 +53,14 @@ void drawEarth(struct Tab_Earth* tab, int i, struct Coordinates origin, double s
 
 void drawRocket(struct Tab_Rocket* tab, int i, struct Coordinates origin, double scale){
     for(int j = 0; j <= i; j++){
-    double px = origin.x + tab->data[j].position.x * scale;
-    double py = origin.y - tab->data[j].position.y * scale;
-    DrawCircle((int)px, (int)py, 2, RED);
-}
-// point actuel plus grand
-double px = origin.x + tab->data[i].position.x * scale;
-double py = origin.y - tab->data[i].position.y * scale;
-DrawCircle((int)px, (int)py, 5, RED);
+        double px = origin.x + tab->data[j].position.x * scale;
+        double py = origin.y - tab->data[j].position.y * scale;
+        DrawCircle((int)px, (int)py, 2, RED);
+    }
+    // point actuel plus grand
+    double px = origin.x + tab->data[i].position.x * scale;
+    double py = origin.y - tab->data[i].position.y * scale;
+    DrawCircle((int)px, (int)py, 5, RED);
 }
 
 void drawEcranFin(enum Code_exit code){
@@ -69,13 +69,13 @@ void drawEcranFin(enum Code_exit code){
         DrawText("Vous avez brûlé dans le soleil", 960, 540, 50, RED);
         break;
     case ATTERRISSAGE:
-        DrawText("Misson Accomplie !", 960, 540, 50, GREEN);
+        DrawText("Mission Accomplie !", 960, 540, 50, GREEN);
         break;
     case SORTIE_VIDE_SPATIAL:
         DrawText("Perdu dans le vide spacial", 960, 540, 50, RED);
         break;
     case CRASH_TERRESTRE:
-         DrawText("crash sur la terre!", 960, 540, 50, RED);
+         DrawText("Crash sur la terre!", 960, 540, 50, RED);
          break;
     case PANNE_CARBURANT:
          DrawText("Panne de carburant", 960, 540, 50, RED);
@@ -178,7 +178,7 @@ bool main_render(struct Tab_Earth* tab_Earth,struct Tab_Rocket* tab_Rocket, enum
             }
         EndDrawing();
         camera.zoom += GetMouseWheelMove() * 0.1f;
-        i+=10;
+        i+=3;
 
     }
     return true;
