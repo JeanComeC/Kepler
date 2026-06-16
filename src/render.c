@@ -4,9 +4,11 @@
 #include <stddef.h>
 
 
-
-
-
+/**
+ * @brief Initialise un tableau d'étoiles avec des positions aléatoires
+ * @param stars Tableau de coordonnées à remplir
+ * @param n Nombre d'étoiles à générer
+ */
 void starInit(struct Coordinates stars[], int n){
     
     
@@ -19,7 +21,11 @@ void starInit(struct Coordinates stars[], int n){
     }
 
 }
-
+/**
+*@brief Dessin du soleil au centre de la carte
+* @param origin coordonée du centre de la carte 
+* @param nbr_circle nombre de cercle qui forme le soleil 
+ */
 void drawSun(struct Coordinates origin , int nbr_circle){
     for (int i = 1 ; i <= nbr_circle; i++){
         float rayon = i * 20;
@@ -27,14 +33,25 @@ void drawSun(struct Coordinates origin , int nbr_circle){
         DrawCircle(origin.x, origin.y, rayon, (Color){253, 249, 0, alpha});
     }
 }
-
+/**
+* @brief Dessin des etoiles
+* @param star[] tableau de cordonée des position des etoile
+* @param n nombre d'etoiles
+ */
 void drawStars(struct Coordinates star[], int n){
     for(int i = 0; i < n; i++ ){
       DrawPixel(star[i].x, star[i].y, (Color){255, 255, 255, 255});
     }
 }
 
-void drawEarth(struct Tab_Earth* tab, int i, struct Coordinates origin, double scale){
+/**
+* @brief dessin de la trajectoir de la terre
+* @param tab tableau des coordonée de la trajectoire de la terre
+*  @param i indice du tableau des coordoné de la terre 
+* @param origin coordonée du centre de la carte 
+* @param scale echelle des deplacement de la terre 
+*/
+void drawEarth(struct Tab_Earth* tab, size_t i, struct Coordinates origin, double scale){
    // Trace de l'orbite parcourue
     for (int j = 0; j < i; j++)
     {
@@ -50,7 +67,13 @@ void drawEarth(struct Tab_Earth* tab, int i, struct Coordinates origin, double s
 
     DrawCircle((int)px, (int)py, 15, BLUE);
 }
-
+/**
+* @brief dessin de la trajectoire de la fusé
+* @param tab tableau des coordoné des trajectoire de la fusé
+* @param i indice du tableau des coordoné
+* @param origin coordoné origin
+* @param scale echelle 
+*/
 void drawRocket(struct Tab_Rocket* tab, int i, struct Coordinates origin, double scale){
     for(int j = 0; j <= i; j++){
     double px = origin.x + tab->data[j].position.x * scale;
@@ -62,7 +85,10 @@ double px = origin.x + tab->data[i].position.x * scale;
 double py = origin.y - tab->data[i].position.y * scale;
 DrawCircle((int)px, (int)py, 5, RED);
 }
-
+/**
+* @brief affiche les resultat du jeu 
+* @param code enumeration des scenario du jeu 
+ */
 void drawEcranFin(enum Code_exit code){
     switch(code){
     case CRASH_SOLAIRE:
@@ -83,7 +109,10 @@ void drawEcranFin(enum Code_exit code){
     }
 }
 
-
+/**
+ * @brief Affiche l'écran d'introduction et récupère la vitesse initiale de la fusée
+ * @return Les coordonnées du vecteur vitesse initiale v0 saisi par le joueur
+ */
 struct Coordinates render_v0_Rocket(){
     InitWindow(WINDOW_WIDTH, WINDOW_HEIGHT, "Intro Kepler");
     struct InputState input = {"", "", 0};
@@ -151,7 +180,32 @@ struct Coordinates render_v0_Rocket(){
     CloseWindow();
     return v0;
 }
-
+/**
+ * @brief Lance la boucle principale de rendu graphique de la simulation.
+ *
+ * Initialise la fenêtre Raylib, crée le fond étoilé, configure la caméra
+ * et affiche à chaque frame le Soleil, la Terre et la fusée selon les
+ * données enregistrées dans les tableaux de trajectoires.
+ *
+ * La caméra permet un zoom à l'aide de la molette de la souris.
+ * Lorsque toutes les données de trajectoire de la fusée ont été affichées,
+ * un écran de fin est dessiné à la place de la simulation.
+ *
+ * @param tab_Earth Pointeur vers la structure contenant les positions de la Terre.
+ * @param tab_Rocket Pointeur vers la structure contenant les positions de la fusée.
+ * @param code_exit Pointeur vers le code indiquant la raison de fin de la simulation,
+ *                  utilisé pour l'affichage de l'écran de fin.
+ *
+ * @return true si la boucle de rendu se termine normalement.
+ *
+ * @note Les coordonnées physiques sont converties en coordonnées écran grâce
+ *       au facteur d'échelle :
+ *       \f$ scale = \frac{300}{3 \times 10^{11}} \f$.
+ *
+ * @warning La fonction ouvre une fenêtre graphique via Raylib avec
+ *          `InitWindow()` mais ne ferme pas explicitement la fenêtre avec
+ *          `CloseWindow()`.
+ */
 bool main_render(struct Tab_Earth* tab_Earth,struct Tab_Rocket* tab_Rocket, enum Code_exit* code_exit){
     InitWindow(WINDOW_WIDTH, WINDOW_HEIGHT, "KEPLER");
     struct Coordinates stars[1080];
