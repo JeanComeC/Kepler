@@ -1,7 +1,12 @@
 #include "physic_calc.h"
 #include "src/algo.h"
 
-
+/**
+@brief calcul de la norme
+@param vector 
+@return un double qui est la norme du vecteur entré en parametre
+@notes
+*/
 double calc_norme(struct Coordinates vector){
     double norme=0.0;
     norme=pow(vector.x,2)+pow(vector.y,2)+pow(vector.z,2);
@@ -9,6 +14,12 @@ double calc_norme(struct Coordinates vector){
     return norme;
 }
 
+/**
+@brief calcul de l'acceleration
+@param vect_r vecteur position
+@return l'acceleration sous forme de coordonnées
+@notes 
+*/
 struct Coordinates calc_acceleration(struct Coordinates vect_r){
     struct Coordinates vect_acc;
     double factor=(CONSTANTE_GRAVITATION_UNIVERSELLE*MASSE_SOLEIL_KG)/pow(calc_norme(vect_r),3);
@@ -18,6 +29,12 @@ struct Coordinates calc_acceleration(struct Coordinates vect_r){
     return vect_acc;
 }
 
+/**
+@brief calcul de vitesse
+@param vect_v, vect_acc vecteur vitesse, et vecteur acceleration
+@return vecteur vitesse
+@notes
+*/
 struct Coordinates calc_vitesse(struct Coordinates vect_v, struct Coordinates vect_acc){
     struct Coordinates  vect_v_output={0};
     vect_v_output.x=vect_v.x+(H_PAS_TEMPOREL_SECONDE*vect_acc.x);
@@ -26,6 +43,12 @@ struct Coordinates calc_vitesse(struct Coordinates vect_v, struct Coordinates ve
     return vect_v_output;
 }
 
+/**
+@brief calcul de position
+@param vect_r, vect_v_news
+@return position en coordonnées
+@notes vect_v_news : on prend la nouvelle vitesse en entrée pour corriger l'imprecision de la méthode d'Euler
+*/
 struct Coordinates calc_position(struct Coordinates vect_r, struct Coordinates vect_v_news){
     struct Coordinates  vect_r_output={0};
     vect_r_output.x=vect_r.x+(H_PAS_TEMPOREL_SECONDE*vect_v_news.x);
@@ -34,6 +57,12 @@ struct Coordinates calc_position(struct Coordinates vect_r, struct Coordinates v
     return vect_r_output;
 }
 
+/**
+@brief calcul de la vitesse relative
+@param vect_v_1, vect_v_2
+@return un vecteur vitesse
+@notes
+*/
 struct Coordinates calc_vitesse_relative(struct Coordinates vect_v_1, struct Coordinates vect_v_2){
     struct Coordinates vect_v_output={0};
     vect_v_output.x=vect_v_2.x-vect_v_1.x;
@@ -44,6 +73,12 @@ struct Coordinates calc_vitesse_relative(struct Coordinates vect_v_1, struct Coo
 
 // ===
 
+/**
+@brief fonction qui regroupe le calcul de vitesse, de position, et d'acceleration pour la terre
+@param data_Earth
+@return struct Data_Earth
+@notes
+*/
 struct Data_Earth calc_Data_Earth(struct Data_Earth data_Earth){
     struct Data_Earth data_Earth_output={0};
     data_Earth_output.vitesse=calc_vitesse(data_Earth.vitesse,calc_acceleration(data_Earth.position));
@@ -51,6 +86,12 @@ struct Data_Earth calc_Data_Earth(struct Data_Earth data_Earth){
     return data_Earth_output;
 }
 
+/**
+@brief fonction qui regroupe le calcul de vitesse, de position, et d'acceleration pour la fusée
+@param data_Rocket
+@return struct Data_Rocket
+@notes
+*/
 struct Data_Rocket calc_Data_Rocket(struct Data_Rocket data_Rocket){
     struct Data_Rocket data_Rocket_output={0};
     data_Rocket_output.vitesse=calc_vitesse(data_Rocket.vitesse,calc_acceleration(data_Rocket.position));

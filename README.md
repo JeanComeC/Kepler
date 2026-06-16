@@ -3,7 +3,7 @@
 ## Concept
 **Kepler** est un projet divisé en 2 partie (2 tags):
 - La première partie est une simulation physique de la trajectoire de la Terre autour du Soleil. Un programme en C effectue une intégration numérique (méthode d'Euler) des équations du mouvement à partir des positions et vitesses initiales de la Terre, calculant à chaque pas horaire sa position (x, y, z) ainsi que ses énergies cinétique et potentielle sur une année complète. Les résultats sont exportés au format JSON, puis visualisés via une page web interactive (https://jeancomec.github.io/Kepler/index.html) affichant la trajectoire orbitale animée et l'évolution des énergies cinétique, potentielle et totale au fil du temps.
-- La seconde partie est un mini-jeu ré-utilisant la partie physique de la première partie, l'utilisateur doit rentrer les coordonnées du vecteur vitesse V0 de sa fusée, pour réussir à la poser sur la Terre.
+- La seconde partie est un mini-jeu ré-utilisant la partie physique de la première partie. L'utilisateur doit rentrer les coordonnées du vecteur vitesse V0 de sa fusée, pour réussir à la poser sur la Terre.
 
 ## Structure des Fichiers
 Le projet est organisé comme suit :
