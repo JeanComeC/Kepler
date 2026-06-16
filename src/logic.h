@@ -14,11 +14,7 @@
 //MACRO
 #define DISTANCE_MAX_R0_ROCKET 7.5E+11
 #define DISTANCE_MAX_UNIVERS 1E+12
-<<<<<<< HEAD
-#define NB_PAS_MAX 24*3000
-=======
 #define NB_PAS_MAX 24*1000
->>>>>>> main
 #define NORME_VITESSE_MAX_IMPACT 5
 #define CHEAT_CODE true
 
