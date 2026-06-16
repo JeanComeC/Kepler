@@ -2,6 +2,7 @@
 #define RENDER_H
 
 //BIBLIOTHEQUE
+#include <stddef.h>
 #include <stdio.h>
 #include <stdbool.h>
 #include <string.h>
@@ -34,7 +35,7 @@ bool main_render(struct Tab_Earth* tab_Earth,struct Tab_Rocket* tab_Rocket, enum
 void starInit(struct Coordinates star[], int n);
 void drawStars(struct Coordinates star[], int n);
 void drawSun(struct Coordinates origin, int nbr_circle);
-void drawEarth(struct Tab_Earth* tab, int index, struct Coordinates origin, double scale);
+void drawEarth(struct Tab_Earth* tab, size_t i, struct Coordinates origin, double scale);
 void drawRocket(struct Tab_Rocket* tab, int i, struct Coordinates origin, double scale);
 void drawEcranFin(enum Code_exit code);
 
