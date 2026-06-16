@@ -4,6 +4,12 @@
 #include <stdlib.h>
 
 
+/**
+@brief initialise un tableau dynamique
+@param void
+@return un Tab_Earth
+@notes
+*/
 struct Tab_Earth create_Tab_Earth(){
     struct Tab_Earth tab;
     struct Data_Earth* data=malloc(2*sizeof(struct Data_Earth));
@@ -17,6 +23,12 @@ struct Tab_Earth create_Tab_Earth(){
     return tab;
 }
 
+/**
+@brief fonction pour ajouter un élément au tab dynamique
+@param 
+@return
+@notes
+*/
 void add_Tab_Earth(struct Tab_Earth* tab_Earth,struct Data_Earth new_data){
     if(tab_Earth->size>=tab_Earth->capacity){
         struct Data_Earth* new_tab=malloc(tab_Earth->capacity*sizeof(struct Data_Earth)*2);
@@ -35,6 +47,12 @@ void add_Tab_Earth(struct Tab_Earth* tab_Earth,struct Data_Earth new_data){
     tab_Earth->size++;
 }
 
+/**
+@brief fonction pour detruire et liberer le tableau
+@param 
+@return
+@notes
+*/
 void destroy_Tab_Earth(struct Tab_Earth* tab_Earth){
     free(tab_Earth->data);
     tab_Earth->data=NULL;
@@ -44,6 +62,12 @@ void destroy_Tab_Earth(struct Tab_Earth* tab_Earth){
 
 // ===
 
+/**
+@brief
+@param 
+@return
+@notes
+*/
 struct Tab_Rocket create_Tab_Rocket(){
     struct Tab_Rocket tab;
     struct Data_Rocket* data=malloc(2*sizeof(struct Data_Rocket));
@@ -57,6 +81,12 @@ struct Tab_Rocket create_Tab_Rocket(){
     return tab;
 }
 
+/**
+@brief
+@param 
+@return
+@notes
+*/
 void add_Tab_Rocket(struct Tab_Rocket* tab_Rocket,struct Data_Rocket new_data){
     if(tab_Rocket->size >= tab_Rocket->capacity){
         struct Data_Rocket* new_tab=realloc(tab_Rocket->data,tab_Rocket->capacity*sizeof(struct Data_Rocket)*2);
@@ -67,6 +97,12 @@ void add_Tab_Rocket(struct Tab_Rocket* tab_Rocket,struct Data_Rocket new_data){
     tab_Rocket->data[tab_Rocket->size++]=new_data;
 }
 
+/**
+@brief
+@param 
+@return
+@notes
+*/
 void destroy_Tab_Rocket(struct Tab_Rocket* tab_Rocket){
     free(tab_Rocket->data);
     tab_Rocket->data=NULL;
@@ -76,6 +112,12 @@ void destroy_Tab_Rocket(struct Tab_Rocket* tab_Rocket){
 
 // ===
 
+/**
+@brief fonction pour generer un double random
+@param 
+@return
+@notes
+*/
 double random_double_for_position(){
     double nb_random_output;
     bool is_valid=false;
