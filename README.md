@@ -101,4 +101,9 @@ Le projet est organisé comme suit :
    rm -rf raylib
    sudo apt update && sudo apt install pkg-config
    ```
-   
+
+## Améliorations
+- Fuel, système de boost/frein sur la fusée, pas de tableaux dynamiques (file à la place), boucle calcul-affichage. Jeu interactif.
+- Rajouter un systeme de vie, et une meilleur expérience joueur, avec un Dashboard montrant les records, etc ...
+- Améliorer les calculs, rajouter la gravité de la Terre et de la Lune, dans les calculs pour la phase finale.
+- Prendre en compte la rotation de la Terre, et que l'atterrissage ne soit en fonction que de l'axe Uz.
